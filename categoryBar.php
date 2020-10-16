@@ -1,9 +1,4 @@
 
-
-
-
-
-
 <div id="left-column">
     <nav>
 <!-- can add new category this way, the type must be exactly same as category in database table -->
