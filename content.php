@@ -19,8 +19,6 @@ $result = $db->query($query);
 ?>
 
 
-
-
 <div class="rightColumn">
     <?php     
     foreach ($result as $value) {
