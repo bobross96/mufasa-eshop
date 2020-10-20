@@ -17,12 +17,23 @@
         $qtyINT = (int)$_POST['quantity'];
         $product_idINT = (int)$product_id;
         $useridINT = (int)$_SESSION['user_id'];
-        $insert = "INSERT INTO cart VALUES (NULL,$qtyINT,$product_idINT,$useridINT)";
-        echo $insert ;
-        $result = $db->query($insert);
+
+        //check if previous product is inside
+        $update = "UPDATE cart_product SET quantity = quantity + $qtyINT WHERE product_id = $product_idINT AND user_id = $useridINT ";
+        $result = $db->query($update);
         
+        //if product id was not in cart , will insert instead
+        if(($db->affected_rows) == 0){
+            $insert = "INSERT INTO cart_product VALUES (NULL,$qtyINT,$product_idINT,$useridINT)";
+            $db->query($insert);
+           
+        }
 
         echo "<script>alert('Item successfully added to cart')</script>";
+
+        
+
+        
     }
     // access other properties like row['column_name']
 
@@ -57,7 +68,7 @@
     <?php echo $row['description'] ?><br><br>
     <span>Order Quantity</span><br><br>
     <form action="" method="POST">
-    <input type="number" id="purchaseQty" class="quantity" name="quantity" min="0" value="0">
+    <input type="number" id="purchaseQty" class="quantity" name="quantity" min="0" value="1">
     <br><br>
     
     <input type="submit" value="Add to cart">

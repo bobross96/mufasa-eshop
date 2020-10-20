@@ -1,0 +1,21 @@
+td {
+    min-width : 200px;
+    text-align: center;
+}
+
+
+
+figcaption {
+    text-align: center;
+}
+
+
+
+
+
+table, td,tr,th{
+    margin: auto;
+    border : 1px groove black;
+}
+
+
