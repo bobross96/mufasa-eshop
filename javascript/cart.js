@@ -20,9 +20,11 @@ function plusQty(e) {
 function minusQty(e) {
     let id = e.target.id.slice(-1)
     let input = document.getElementById(id)
+
     if (input.value > 0){
     input.value--
     }
+
 }
 
 

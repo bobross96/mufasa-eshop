@@ -3,7 +3,9 @@ use f37ee;
 create table products (
     id int unsigned not null auto_increment primary key,
     product_name varchar(255) not null,
+
     price float(9,2),
+
     category varchar(255),
     description text(1000)
 );

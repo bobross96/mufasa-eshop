@@ -6,6 +6,7 @@
  include 'dbconnect.php';
 
  
+
  $select = "SELECT * FROM cart_product";
  $db->query($select);
  
@@ -19,6 +20,7 @@
  }
 	
  //test
+
 ?>
 
 <!--<div style="margin:auto">
