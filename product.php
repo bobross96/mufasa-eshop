@@ -19,12 +19,16 @@
         $useridINT = (int)$_SESSION['user_id'];
 
         //check if previous product is inside
-        $update = "UPDATE cart SET quantity = quantity + $qtyINT WHERE product_id = $product_idINT AND user_id = $useridINT ";
+
+        $update = "UPDATE cart_product SET quantity = quantity + $qtyINT WHERE product_id = $product_idINT AND user_id = $useridINT ";
+
         $result = $db->query($update);
         
         //if product id was not in cart , will insert instead
         if(($db->affected_rows) == 0){
-            $insert = "INSERT INTO cart VALUES (NULL,$qtyINT,$product_idINT,$useridINT)";
+
+            $insert = "INSERT INTO cart_product VALUES (NULL,$qtyINT,$product_idINT,$useridINT)";
+
             $db->query($insert);
            
         }

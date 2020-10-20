@@ -3,7 +3,9 @@ use f37ee;
 create table products (
     id int unsigned not null auto_increment primary key,
     product_name varchar(255) not null,
-    price float(7,2),
+
+    price float(9,2),
+
     category varchar(255),
     description text(1000)
 );
@@ -12,7 +14,7 @@ create table mufasa_orders (
     id int unsigned not null auto_increment primary key,
     user_id int unsigned not null references users(id),
     order_date DATETIME,
-    total_amount float(5,2)
+    total_amount float(9,2)
 );
 
 create table product_orders(
@@ -23,7 +25,7 @@ create table product_orders(
 
 );
 
-create table cart(
+create table cart_product(
     id int unsigned not null auto_increment primary key,
     quantity int unsigned not null,
     product_id int unsigned not null references products(id),

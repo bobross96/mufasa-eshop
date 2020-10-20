@@ -8,9 +8,15 @@
    
 
 
-    $query = "SELECT * FROM cart c,products p WHERE c.user_id = $user_idINT AND c.product_id = p.id"; 
+
+    $query = "SELECT * FROM cart_product c,products p WHERE c.user_id = $user_idINT AND c.product_id = p.id"; 
     
     $result = $db->query($query);
+    $totalPrice = 0;
+    foreach ($result as $value) {
+        $totalPrice += $value['quantity']*$value['price'];
+    }
+
     #var_dump($result);
 
     if($_SERVER["REQUEST_METHOD"] == "POST"){
@@ -21,12 +27,18 @@
             $product_idINT = (int)$key;
             $qty_INT = (int)$value;
 
-            $update = "UPDATE cart SET quantity = $qty_INT WHERE product_id = $product_idINT AND user_id = $user_idINT ";
+
+            $update = "UPDATE cart_product SET quantity = $qty_INT WHERE product_id = $product_idINT AND user_id = $user_idINT ";
             $db->query($update);
             
             //query again to update according to the updates lmao..
-            $query = "SELECT * FROM cart c,products p WHERE c.user_id = $user_idINT AND c.product_id = p.id"; 
+            $query = "SELECT * FROM cart_product c,products p WHERE c.user_id = $user_idINT AND c.product_id = p.id"; 
             $result = $db->query($query);
+            $totalPrice = 0;
+            foreach ($result as $value) {
+                $totalPrice += $value['quantity']*$value['price'];
+            }
+
            
         }
     }
@@ -67,8 +79,10 @@
             echo "</a>";
             echo "<span class='product-price'>$".$value['price']*$value['quantity']."</span><br>";
             echo "<button style='vertical-align:top' type='button' class='minusButton' id='buttonMinus".$value['id']."'>-</button>&nbsp;";
-            echo "<input type='number' id='".$value['id']."' class='product-qty-input'  name='".$value['id']."' value='".$value['quantity']."'>";
-            echo " </input><button style='vertical-align:top' type='button' class='plusButton' id='buttonPlus".$value['id']."'>+</button>&nbsp;sets";
+
+            echo "<input type='number' id='".$value['id']."' class='product-qty-input'  name='".$value['id']."' value='".$value['quantity']."' min='0' >";
+            echo "&nbsp;<button style='vertical-align:top' type='button' class='plusButton' id='buttonPlus".$value['id']."'>+</button>&nbsp;sets";
+
             echo "</div>";
 
         }
@@ -76,9 +90,12 @@
         ?>
         <br><br><br>
         </form>
+
+        
         <div style="float:right">
-        <span>Total Price:</span>
-        <a href="order.php"><button>Check Out</button></a>
+        <span>Total Price: $<?php echo $totalPrice; ?></span>
+        <a href="checkout.php"><button>Check Out</button></a>
+
         </div>
     </div>
     </div>

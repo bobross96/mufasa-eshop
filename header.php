@@ -6,10 +6,21 @@
  include 'dbconnect.php';
 
  
- $select = "SELECT * FROM cart";
+
+ $select = "SELECT * FROM cart_product";
  $db->query($select);
- $cartItemsQty = ($db->affected_rows);
-    //test
+ 
+ if(($db->affected_rows) > 0){
+	 $cartItemsQty = $db->affected_rows;
+	 //echo "poop";
+ }
+ else {
+	//echo "poop";
+	 $cartItemsQty = 0;
+ }
+	
+ //test
+
 ?>
 
 <!--<div style="margin:auto">
