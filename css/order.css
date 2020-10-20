@@ -13,7 +13,7 @@ figcaption {
 
 
 
-table, td,tr,th{
+table, tr,td,th{
     margin: auto;
     border : 1px groove black;
 }
