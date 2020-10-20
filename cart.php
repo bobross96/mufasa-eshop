@@ -9,7 +9,7 @@
 
 
 
-    $query = "SELECT * FROM cart_product c,products p WHERE c.user_id = $user_idINT AND c.product_id = p.id"; 
+    $query = "SELECT c.id,c.product_id,c.quantity,p.product_name,p.price FROM cart_product c,products p WHERE c.user_id = $user_idINT AND c.product_id = p.id"; 
     
     $result = $db->query($query);
     $totalPrice = 0;
@@ -20,19 +20,23 @@
     #var_dump($result);
 
     if($_SERVER["REQUEST_METHOD"] == "POST"){
+        if ($_POST['deleteButton'] != 0){
+            $idINT = (int)$_POST['deleteButton'];
+            $delete = "DELETE FROM cart_product WHERE id=$idINT";
+            $db->query($delete);
+        }
         foreach ($_POST as $key => $value) {
 
             //update the key from inside the cart table!
             // key is producid , value is quantity, userid int ?
-            $product_idINT = (int)$key;
+            $idINT = (int)$key;
             $qty_INT = (int)$value;
 
-
-            $update = "UPDATE cart_product SET quantity = $qty_INT WHERE product_id = $product_idINT AND user_id = $user_idINT ";
+            $update = "UPDATE cart_product SET quantity = $qty_INT WHERE id = $idINT ";
             $db->query($update);
             
             //query again to update according to the updates lmao..
-            $query = "SELECT * FROM cart_product c,products p WHERE c.user_id = $user_idINT AND c.product_id = p.id"; 
+            $query = "SELECT c.id,c.product_id,c.quantity,p.product_name,p.price FROM cart_product c,products p WHERE c.user_id = $user_idINT AND c.product_id = p.id"; 
             $result = $db->query($query);
             $totalPrice = 0;
             foreach ($result as $value) {
@@ -54,6 +58,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cart</title>
     <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="css/order.css">
     <script type="module" src="javascript/cart.js"></script>
 </head>
 <body>
@@ -66,34 +71,48 @@
     ?>
     <div class="rightColumn">
         <h1>Cart</h1>
-        <form action="" method='POST'>
-        <input type="submit" value="Update Cart" id="updateCart">
+        <form action="<?php echo $_SERVER['PHP_SELF']?>" method='POST'>
+        <input type="submit" value="Update Cart" id="updateCart" name="updateCart">
         <br>
+        <table>
+            <tr>
+                <th>Product</th>
+                <th>Quantity</th>
+                <th>Price</th>
+            </tr>
         <?php
         
         foreach ($result as $value) {
-            echo "<div class='product'>";
-            echo "<a href='product.php?id=".$value['id']."'>";
-            echo "<img class='product-image' src='images/productid".$value['id'].".jpg' alt=''>";
-            echo "<span class='product-desc'>".$value['product_name']."</span><br>";
-            echo "</a>";
-            echo "<span class='product-price'>$".$value['price']*$value['quantity']."</span><br>";
+            echo "<tr>";
+            echo "<td>";
+            echo "<figure>";
+            echo "<img src='images/productid".$value['product_id'].".jpg' alt='cart-image' width='100px' height='100px'>";
+            echo "<figcaption>".$value['product_name']."</figcaption>";
+            echo "</td>";
+            echo "<td>";
             echo "<button style='vertical-align:top' type='button' class='minusButton' id='buttonMinus".$value['id']."'>-</button>&nbsp;";
-
-            echo "<input type='number' id='".$value['id']."' class='product-qty-input'  name='".$value['id']."' value='".$value['quantity']."' min='0' >";
-            echo "&nbsp;<button style='vertical-align:top' type='button' class='plusButton' id='buttonPlus".$value['id']."'>+</button>&nbsp;sets";
-
-            echo "</div>";
-
+            echo "<input type='number' id=".$value['id']." class='product-qty-input qtyInput'  name='".$value['id']."' value='".$value['quantity']."' min='0' >";
+            echo "&nbsp;<button style='vertical-align:top' type='button' class='plusButton' id='buttonPlus".$value['id']."'>+</button>&nbsp;";
+            echo "&nbsp;<button name='deleteButton' value='".$value['id']."' style='vertical-align:top ; color:red' type='submit'>X</button>";
+            echo "<input type='hidden' id='input".$value['id']."' value=".$value['price']." >";
+            echo "</td>";
+            echo "<td id='price".$value['id']."' >$".$value['price']*$value['quantity'];        
+            echo "</td>";
+            echo "</tr>";
         }
 
+        echo "<tr><td colspan='2'>Total Price:</td>";
+        echo "<td id='totalPrice'>$".$totalPrice."</td>";
+        echo "</tr>";
+        
         ?>
-        <br><br><br>
+
+        </table>
         </form>
 
         
         <div style="float:right">
-        <span>Total Price: $<?php echo $totalPrice; ?></span>
+        
         <a href="checkout.php"><button>Check Out</button></a>
 
         </div>
