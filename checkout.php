@@ -67,9 +67,11 @@
         ?>
 
         </table>
+        <div style="text-align:center">
         <form action="order_history.php" method="POST">
         <input type="submit" value="Submit" name="order">
         </form>
+        </div>
     </div>
     </div>
 </body>
