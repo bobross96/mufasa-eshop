@@ -6,10 +6,11 @@
  include 'dbconnect.php';
 
  
-
+$nanyangBooty = (int)$_SESSION['user_id'];
  $select = "SELECT * FROM cart_product";
- $db->query($select);
- 
+ $result->query($select);
+
+ echo var_dump($result);
  if(($db->affected_rows) > 0){
 	 $cartItemsQty = $db->affected_rows;
 	 //echo "poop";
