@@ -7,7 +7,8 @@
 
  
 
- $select = "SELECT * FROM cart_product";
+ $userID = (int)$_SESSION['user_id'];
+ $select = "SELECT * FROM cart_product WHERE user_id = $userID ";
  $db->query($select);
  
  if(($db->affected_rows) > 0){
