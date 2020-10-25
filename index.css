@@ -10,6 +10,7 @@
     color: #31160c;
     min-height: 500px;
     font-size: 120%;
+	text-decoration: none;
     
 }
 
@@ -21,12 +22,10 @@ nav ul {
   
   nav a {
     text-decoration: none;
-  
   }
   
   nav {
     float: left;
-   
   }
 
   .product {
@@ -60,7 +59,7 @@ nav ul {
 
   .product-image {
       width: 250px;
-      height: 200px;
+      height: 250px;
   }
 
   .product-desc {
@@ -77,8 +76,6 @@ nav ul {
     text-align: center;
     vertical-align: top;
   }
-  
-
 
 
 
