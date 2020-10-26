@@ -5,6 +5,7 @@ let minusButton = document.querySelectorAll(".minusButton")
 
 
 qtyInput.forEach((input) => {
+    console.log('poop');
     input.addEventListener("change", updatePrice, false);
 });
 
@@ -19,22 +20,10 @@ minusButton.forEach((button) => {
 
 function updatePrice(e) {
     let id = e.target.id;
-    if (e.target.value <= 1 ){
-        e.target.value = 1
-        let minusButtonE = document.getElementById('buttonMinus'+id)
-        minusButtonE.disabled = true
-    }
-    let newQty = e.target.value;
-    let price = document.getElementById("input" + id);
-    let currentPrice = document.getElementById("price" + id);
-    let totalPrice = document.getElementById("totalPrice");
-    let oldPrice = parseInt(currentPrice.textContent.slice(1));
-    let blahem = document.getElementById("change" + id);
-    currentPrice.textContent = "$" + price.value * newQty;
-    let diffPrice = price.value * newQty - oldPrice;
-    totalPrice.textContent =
-        "$" + (parseInt(totalPrice.textContent.slice(1)) + diffPrice);
-    blahem.value = id;
+    // this will append value to the focusInput POST variable, so that
+    // upon refresh of page, can get the id number to focus on 
+    let focusInput = document.getElementById("change" + id);
+    focusInput.value = id;
     updateCart.click()
     
 }
@@ -44,8 +33,6 @@ function minusQty(e){
     let input = document.getElementById(id)
     if (input.value <= 1 ){
         input.value = 1
-        let minusButtonE = document.getElementById('buttonMinus'+id)
-        minusButtonE.disabled = true
     } 
 }
 
