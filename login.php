@@ -49,7 +49,57 @@ if (isset($_POST['username'])){
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="index.css">
-    <title>Document</title>
+    <title>Login</title>
+	<style>
+			* {box-sizing: border-box}
+
+		/* Add padding to containers */
+		.container {
+		  padding: 16px;
+		}
+
+		/* Full-width input fields */
+		input[type=text], input[type=password] {
+		  width: 20%;
+		  padding: 15px;
+		  margin: 5px 0 22px 0;
+		  display: inline-block;
+		  border: none;
+		  background: #f1f1f1;
+		}
+
+		input[type=text]:focus, input[type=password]:focus {
+		  background-color: #ddd;
+		  outline: none;
+		}
+
+		/* Overwrite default styles of hr */
+		hr {
+		  border: 1px solid #f1f1f1;
+		  margin-bottom: 25px;
+		}
+
+		/* Set a style for the submit/register button */
+		.loginbtn {
+		  background-color: #4CAF50;
+		  color: white;
+		  padding: 16px 20px;
+		  margin: 8px 0;
+		  border: none;
+		  cursor: pointer;
+		  width: 20%;
+		  opacity: 0.9;
+		}
+
+		.loginbtn:hover {
+		  opacity:1;
+		}
+
+		/* Add a blue text color to links */
+		a {
+		  color: dodgerblue;
+		}
+	</style>
 </head>
 <body>
     <h3>
@@ -59,16 +109,16 @@ if (isset($_POST['username'])){
     </h3>
     
     <div style="text-align:center">
-    <h2 style="font-style:italic">Mufasa Electronics</h2>
+    <h2 style="font-style:italic">Login Page</h2>
     <img src="images/logo.jpg" alt="logo">
+	<p>Need an account? <a href="register.php">Register here.</a></p>
     <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
     Username: <br>
     <input type="text" name="username" required><br>
     Password: <br>
     <input type="password" name="password" required><br>
     
-    <input type="submit" name="submit" value="Submit">
-    <input type="reset" name="reset" value="Reset">
+	<button name="submit" type="submit" class="loginbtn" value="Submit">Login</button>
     </form>
     </div>
 </body>
