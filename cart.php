@@ -91,10 +91,13 @@
     <script type="module" src="javascript/cart.js"></script>
 </head>
 <body>
-    <div class="container">
+    
     <?php 
 
     include 'header.php';
+    ?>
+    <div class="container">
+    <?php
     include 'categoryBar.php';
     
     ?>

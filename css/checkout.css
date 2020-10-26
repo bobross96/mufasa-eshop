@@ -1,0 +1,19 @@
+.details-form{
+    margin-left: 100px;
+    padding: 30px;
+    border: 1px black solid;
+    display:inline-block; 
+    vertical-align: top;
+}
+
+.items-cart{
+    padding-left: 10px;
+    display:inline-block; 
+    vertical-align: top;
+}
+
+
+.form-element label {
+    display: inline-block;
+    width: 150px;
+}

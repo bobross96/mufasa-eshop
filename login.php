@@ -21,8 +21,8 @@ if (isset($_POST['username'])){
         $_SESSION['valid_user'] = $username;
         echo $row["id"];
         echo $_SESSION["user_id"];
-        echo "Successfully logged in ".$username." .Redirecting...";
-        echo "<script>setTimeout(function(){window.location.href='member.php'},1000)</script>";
+        echo "<script>alert('Successfully logged in ".$username."')</script>";
+        echo "<script>window.location.href='member.php'</script>";
         
         
     }
