@@ -1,5 +1,16 @@
 <?php 
 
+//header alr got session police and db connect lmao
+include 'sessionPolice.php';
+include 'dbconnect.php';
+
+$user_idINT = (int)$_SESSION['user_id'];
+
+$userInfo = "SELECT * FROM users WHERE id = $user_idINT";
+$result = $db->query($userInfo);
+$row = $result -> fetch_assoc();
+
+
 
 
 ?>
@@ -18,6 +29,7 @@
     
     <?php
     include 'header.php';
+ 
     ?>
     <div class="container">
     <div id="left-column">
@@ -31,7 +43,7 @@
         
             <p>User name: <?php echo $_SESSION['valid_user']; ?></p>
             <p>Email:</p>
-            <p>Address: </p>
+            <p>Address: <?php echo $row['address']; ?> </p>
         
     
     </div>

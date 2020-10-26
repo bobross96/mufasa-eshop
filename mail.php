@@ -22,19 +22,36 @@ foreach ($result as $value) {
 
 }
 $message .= "Total Price:$ ".$totalPrice."\n";
-$message .= "Expected delivery date is: -fakedate-\n";
-$message .= "\nThanks for shopping with Mufasa, please order again we have unlimited stock";
+
 
 $orders_query = "SELECT * FROM mufasa_orders";
 $orders_result = $db->query($orders_query);
 
-if($_SERVER["REQUEST_METHOD"] == "POST" && $_POST['order'] == 'Submit'){
-    //add cart items to order
-    //update first? if not create
+if($_SERVER["REQUEST_METHOD"] == "POST" && $_POST['order'] == "Confirm Payment"){
+    
+    //first check if exists address
+    $address = $_POST['address'];
+    $postalCode = $_POST['postalCode'];
+    
+    $checkAddressExist = "SELECT address,postal_code FROM users WHERE id = $user_idINT";
+    $result = $db -> query($checkAddressExist);
+    if ($result->num_rows == 0){
+        //add new address into db
+        $add_address = "INSERT INTO users (address,postal_code) VALUES ('$address','$postalCode') WHERE id = $user_idINT";
+        $db ->query($add_address);
+    } 
+
+    else {
+        // auto update user address
+        $update_address = "UPDATE users SET address = '$address', postal_code = '$postalCode' WHERE id = $user_idINT";
+        $db -> query($update_address);
+    }
+    
+    //insert new order 
     $insert_order = "INSERT INTO mufasa_orders VALUES (NULL,$user_idINT,CURRENT_TIMESTAMP,$totalPrice) ";
     
     $db->query($insert_order);
-    // add invididual products into the product_orders table
+    // add invididual products into the product_orders table from cart
     $order_id = $db->insert_id;
     foreach ($result as $value) {
         $product_idINT = (int)$value['product_id'];
@@ -45,26 +62,27 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && $_POST['order'] == 'Submit'){
 
     $cart_idINT = (int)$cart_id;
     //delete items from cart
+    $delete = "DELETE FROM cart_product WHERE user_id=$user_idINT";
+    $db->query($delete);
+
+
+    //send mail 
+    $message .= "Expected delivery date is: -fakedate-\n";
+    $message .= "Sending Items to: ".$address.", Postal Code:".$postalCode;
+    $message .= "\nThanks for shopping with Mufasa, please order again we have unlimited stock";
     
     $to = 'f37ee';
     $subject = 'Mufasa e shop order details';
     $headers = 'From: f32ee@localhost'."\r\n".'Reply-To: f32ee@localhost'."\r\n".'X-Mailer: PHP/'.phpversion();
 
     mail($to,$subject,$message,$headers);
-    
-    
-    $delete = "DELETE FROM cart_product WHERE user_id=$user_idINT";
-    $db->query($delete);
 
     echo "<script>alert('successfully ordered, an email as been sent to the user')</script>";
     echo "<script>location.href='order_history.php'</script>";
 
     
 
-
-
 }
-
 
 
 
