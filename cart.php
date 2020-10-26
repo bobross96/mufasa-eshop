@@ -2,7 +2,7 @@
 
     include 'sessionPolice.php';
     include 'dbconnect.php';
-
+    
     
     $user_idINT = (int)$_SESSION['user_id'];
     $query = "SELECT c.id,c.product_id,c.quantity,p.product_name,p.price FROM cart_product c,products p WHERE c.user_id = $user_idINT AND c.product_id = p.id"; 
@@ -18,9 +18,10 @@
             $delete = "DELETE FROM cart_product WHERE id=$deleteidINT";
             $db->query($delete);
         }
-
-        if (isset($_POST['blahem'])){
-            foreach ($_POST['blahem'] as $value) {
+         
+        //this is to focus on the element that changed
+        if (isset($_POST['focusInput'])){
+            foreach ($_POST['focusInput'] as $value) {
                 if ($value != 0){
                     $currentidINT = $value;
                 break;
@@ -102,36 +103,42 @@
         <form action="<?php echo $_SERVER['PHP_SELF']?>" method='POST'>
         <input type="submit" style="display:none" value="Update Cart" id="updateCart" name="updateCart">
         <br>
-        
-                
-            
         <?php
         
         if ($cartItemsQty == 0){
-            echo "<h2 style='text-align:center'>No items in cart! Help Mufasa out</h2>";
+
+        ?>
+        <h2 style='text-align:center'>No items in cart! Help Mufasa out</h2>
+        
+        <?php     
         }
         else {
-            echo "<table><tr>";
-            echo "<th>Product</th><th>Quantity</th><th>Price</th>";
-            echo "</tr>";
+        ?>
+
+        <table><tr>
+        <th>Product</th><th>Quantity</th><th>Price</th>
+        </tr>
+        <?php 
         foreach ($result as $value) {
-            echo "<tr>";
-            echo "<td>";
-            echo "<figure>";
-            echo "<img src='images/productid".$value['product_id'].".jpg' alt='cart-image' width='100px' height='100px'>";
-            echo "<figcaption>".$value['product_name']."</figcaption>";
-            echo "</td>";
-            echo "<td>";
-            echo "<button style='vertical-align:top' class='minusButton' name='minusButton' value='".$value['id']."' id='buttonMinus".$value['id']."'>-</button>&nbsp;";
-            echo "<input type='number' id=".$value['id']." class='product-qty-input qtyInput'  name='".$value['id']."' value='".$value['quantity']."' min='1' >";
-            echo "&nbsp;<button style='vertical-align:top' class='plusButton' id='buttonPlus".$value['id']."' name='plusButton' value='".$value['id']."'>+</button>&nbsp;";
-            echo "&nbsp;<button name='deleteButton' value='".$value['id']."' style='vertical-align:top ; color:red' type='submit'>X</button>";
-            echo "<input type='hidden' id='input".$value['id']."' value=".$value['price'].">";
-            echo "<input type='hidden' id='change".$value['id']."' name='blahem[]'>";
-            echo "</td>";
-            echo "<td id='price".$value['id']."' >$".$value['price']*$value['quantity'];        
-            echo "</td>";
-            echo "</tr>";
+        ?>    
+        <tr>
+            <td>
+            <figure>
+            <img src='images/productid<?php echo $value['product_id']; ?>.jpg' alt='cart-image' width='100px' height='100px'>
+            <figcaption><?php $value['product_name']; ?></figcaption>
+            </td>
+            <td>
+            <button style='vertical-align:top' class='minusButton' name='minusButton' value=<?php echo $value['id']; ?> id='buttonMinus<?php echo $value['id']?>' <?php if ($value['quantity'] == '1'){ echo "disabled";} ?>>-</button>&nbsp;
+            <input type='number' id=<?php echo $value['id']; ?> class='product-qty-input qtyInput'  name='<?php echo $value['id'] ?>' value='<?php echo $value['quantity'] ?>' min='1' >
+            &nbsp;<button style='vertical-align:top' class='plusButton' id='buttonPlus<?php echo $value['id'] ?>' name='plusButton' value='<?php echo $value['id'] ?>'>+</button>&nbsp;
+            &nbsp;<button name='deleteButton' value='<?php echo $value['id'] ?>' style='vertical-align:top ; color:red' type='submit'>X</button>
+            <input type='hidden' id='input<?php echo $value['id']; ?>' value="<?php echo $value['price'] ?>">
+            <input type='hidden' id='change<?php echo $value['id']; ?>' name='focusInput[]'>
+            </td>
+            <td id='price<?php echo $value['id'];?>' >$<?php echo $value['price']*$value['quantity'];?>        
+            </td>
+            </tr>
+        <?php
         }
 
         echo "<tr><td colspan='2'>Total Price:</td>";
