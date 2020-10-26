@@ -55,8 +55,9 @@
     <script type="module" src="javascript/product.js"></script>
 </head>
 <body>
-<div class="container">
+
     <?php include 'header.php' ?>
+    <div class="container">
     <?php include 'categoryBar.php' ?>
     <div class="rightColumn">
     <?php

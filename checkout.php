@@ -29,17 +29,34 @@
     <title>Check Out</title>
     <link rel="stylesheet" href="index.css">
     <link rel="stylesheet" href="css/order.css">
+    <link rel="stylesheet" href="css/checkout.css">
 </head>
 <body>
-    <div class="container">
+<form action="mail.php" method="POST">
     <?php 
 
     include 'header.php';
-    include 'categoryBar.php';
     
     ?>
-    <div class="rightColumn">
-        <h1>Check Out</h1>
+<div class="container">    
+
+        <div class="details-form">
+        <h1>Check Out</h1>            
+            <h2>Deliver to:</h2>
+            <div class="form-element">
+            <label for="address">Address:</label>
+            <input type="text" class="form-input" name="address" required><br>
+            </div>
+            <div class="form-element">
+            <label for="unitNumber">Unit no:</label>
+            <input type="text" class="form-input" name="unitNumber" required><br>
+            </div>
+            <div class="form-element">
+            <label for="postalCode">Postal Code:</label>
+            <input type="text" class="form-input" name="postalCode" required><br>
+            </div>
+        </div>
+        <div class="items-cart">
         <table>
             <tr>
                 <th>Product</th>
@@ -67,12 +84,20 @@
         ?>
 
         </table>
+        </div>
         <div style="text-align:center">
-        <form action="order_history.php" method="POST">
-        <input type="submit" value="Submit" name="order">
-        </form>
+        
+
+
+        
+        </div>
+        <div style="text-align:center">
+        
+        <input type="submit" value="Confirm Payment" name="order">
+        
         </div>
     </div>
-    </div>
+    </form>
+    <script src="checkout.js"></script>
 </body>
 </html>

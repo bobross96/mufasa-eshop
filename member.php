@@ -24,8 +24,9 @@ else {
     <link rel="stylesheet" href="index.css">
 </head>
 <body>
-    <div class="container">
+    
     <?php include 'header.php' ?>
+    <div class="container">
     <?php include 'categoryBar.php' ?>
     <?php include 'content.php'?>
     </div>

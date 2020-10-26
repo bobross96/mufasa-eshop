@@ -10,20 +10,31 @@ if (isset($_POST['submit'])){
 
     $username = $_POST['username'];
     $password = md5($_POST['password']);
+	//check if username is already taken or email has already been registered
+	$checkExistingUsername = "SELECT * FROM users WHERE username = '$username'";
+	$db -> query($checkExistingUsername);
+	if(($db->affected_rows) > 0){
+		echo "<script>alert('username has already been taken!')</script>";
+	} 
 
-    $sql = "INSERT INTO users (username,password) VALUES ('$username','$password')";
+	else {
+		$sql = "INSERT INTO users (username,password) VALUES ('$username','$password')";
 
-    $result = $db -> query($sql);
+    	$result = $db -> query($sql);
 
-    if (!$result){
+    	if (!$result){
         echo "$result->error_log";
-    }
+    	}
 
-    else {
-        echo "Successfully register".$username;
-        echo "<script>setTimeout(function(){window.location.href='member.php'},1000)</script>";
+    	else {
+		// if need can just redirect to the start page later
+        echo "<script>alert('Successfully registered ".$username."')</script>";
+        echo "<script>location.href='member.php'</script>";
         //redirect to member page
-    }
+    	}
+	}
+
+    
 
 
 
