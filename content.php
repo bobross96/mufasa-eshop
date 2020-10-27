@@ -26,8 +26,8 @@ $result = $db->query($query);
         echo "<div class='product'>";
         echo "<a href='product.php?id=".$value['id']."'>";
         echo "<img class='product-image' src='images/productid".$value['id'].".jpg' alt=''>";
-        echo "<span class='product-desc'>".$value['product_name']."</span><br>";
-        echo "<span class='product-price'>".$value['price']."</span><br>";
+        echo "<span class='product-desc' style='color: black; font-weight: bold'>".$value['product_name']."</span><br>";
+        echo "$","<class='product-price'>".$value['price']."<br>";
         echo "</div>";
     }
 
