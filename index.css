@@ -79,6 +79,14 @@ nav ul {
     vertical-align: top;
   }
   
+*
+{
+    font-family: Arial, sans-serif;
+	text-decoration: none;
+}
 
-
+/* Add a blue text color to links */
+		a {
+		  color: dimgray;
+		}
 

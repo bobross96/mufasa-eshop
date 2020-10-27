@@ -87,7 +87,7 @@
     width: 50px;
 	height: 50px;
 	text-align: center;
-	font-size:20px
+	font-size:20px;
 	} 
 	
 	input[type=number]::-webkit-inner-spin-button, 
