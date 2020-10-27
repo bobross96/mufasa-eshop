@@ -19,11 +19,10 @@ if (isset($_POST['username'])){
         session_start();
         $_SESSION['user_id'] = $row['id'];
         $_SESSION['valid_user'] = $username;
-        echo $row["id"];
-        echo $_SESSION["user_id"];
-        echo "Successfully logged in ".$username." .Redirecting...";
+        //echo $row["id"];
+        //echo $_SESSION["user_id"];
+        echo "Login Successful. Redirecting...";
         echo "<script>setTimeout(function(){window.location.href='member.php'},1000)</script>";
-        
         
     }
 
@@ -99,9 +98,20 @@ if (isset($_POST['username'])){
 		a {
 		  color: dodgerblue;
 		}
+		
+	  .loader {
+	  border: 16px solid #f3f3f3;
+	  border-radius: 50%;
+	  border-top: 16px solid #3498db;
+	  width: 120px;
+	  height: 120px;
+	  -webkit-animation: spin 2s linear infinite; /* Safari */
+	  animation: spin 2s linear infinite;
+}
 	</style>
 </head>
 <body>
+	<div id="loader"></div>
     <h3>
     <?php
     echo $login_error;
