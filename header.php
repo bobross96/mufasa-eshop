@@ -40,8 +40,7 @@
 	<img src="images/cart.svg" alt="carty" width="40px" height="40px" style="vertical-align: middle; text-align: right">
 	<?php echo $cartItemsQty; ?>
 	</span></a>
-	<span style="margin-right: 2%" ><img src="images/user.svg" alt="bye" width="30px" height="30px" style="vertical-align: middle; text-align: right; margin-right: 2px">Welcome <?php echo $_SESSION['valid_user'] ?></span></a>
+	<a href="profile.php"><span style="margin-right: 2%" ><img src="images/user.svg" alt="bye" width="30px" height="30px" style="vertical-align: middle; text-align: right; margin-right: 2px">Welcome <?php echo $_SESSION['valid_user'] ?></span></a>
 	<a href="logout.php" style="color: black; text-decoration: none"><span style="" ><img src="images/logout.svg" alt="bye" width="30px" height="30px" style="vertical-align: middle; text-align: right; margin-right: 2px">Logout</span></a>
 </div>
 
-</div>

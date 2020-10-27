@@ -19,10 +19,11 @@ if (isset($_POST['username'])){
         session_start();
         $_SESSION['user_id'] = $row['id'];
         $_SESSION['valid_user'] = $username;
-        //echo $row["id"];
-        //echo $_SESSION["user_id"];
-        echo "Login Successful. Redirecting...";
-        echo "<script>setTimeout(function(){window.location.href='member.php'},1000)</script>";
+
+        echo $row["id"];
+        echo $_SESSION["user_id"];
+        echo "<script>alert('Successfully logged in ".$username."')</script>";
+        echo "<script>window.location.href='member.php'</script>";
         
     }
 
