@@ -89,6 +89,18 @@
     <link rel="stylesheet" href="index.css">
     <link rel="stylesheet" href="css/order.css">
     <script type="module" src="javascript/cart.js"></script>
+	<style>
+	
+	input[type=number]{
+	text-align: center;
+	} 
+	
+	input[type=number]::-webkit-inner-spin-button, 
+	input[type=number]::-webkit-outer-spin-button 
+	{  
+	opacity: 0;
+	}
+	</style>
 </head>
 <body>
     

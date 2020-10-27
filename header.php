@@ -36,8 +36,8 @@
     <span><label for="search"></label><input name="search" type="text" placeholder="Search for your products here" style="width:25%;padding: 16px 16px;margin-left: 2%;vertical-align: middle"></span>
 	<button type="submit" style="padding: 16px 16px; vertical-align: middle"><i class="fa fa-search"></i></button>
     <a href="cart.php" style="text-decoration: none; color: black; vertical-align: middle">
-	<span style="padding: 16px 16px;min-width:40%; margin-left: 2%; margin-right: 2%" >
-	<img src="images/cart.svg" alt="carty" width="50px" height="50px" style="vertical-align: middle; text-align: right">
+	<span style="padding: 16px 16px;min-width:40%; margin-left: 2%; margin-right: 2%; font-size: 20px; vertical-align: middle">
+	<img src="images/cart.svg" alt="carty" width="40px" height="40px" style="vertical-align: middle; text-align: right">
 	<?php echo $cartItemsQty; ?>
 	</span></a>
 	<a href="profile.php"><span style="margin-right: 2%" ><img src="images/user.svg" alt="bye" width="30px" height="30px" style="vertical-align: middle; text-align: right; margin-right: 2px">Welcome <?php echo $_SESSION['valid_user'] ?></span></a>

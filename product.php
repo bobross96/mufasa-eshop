@@ -11,6 +11,7 @@
     $row = $result -> fetch_assoc();
 
 
+	
     if(isset($_POST['quantity']) && $_POST['quantity'] > 0){
         #code to insert item into cart
         //need to convert these values to int to insert into cart db table 
@@ -53,6 +54,49 @@
     <title>Product</title>
     <link rel="stylesheet" href="index.css">
     <script type="module" src="javascript/product.js"></script>
+	<style>
+	.card {
+	  max-width: 300px;
+	  margin: auto;
+	  text-align: center;
+	  font-family: arial;
+	}
+
+	.price {
+	  color: grey;
+	  font-size: 22px;
+	}
+
+	.card button {
+	  border: none;
+	  outline: 0;
+	  padding: 12px;
+	  color: white;
+	  background-color: #000;
+	  text-align: center;
+	  cursor: pointer;
+	  width: 100%;
+	  font-size: 18px;
+	}
+
+	.card button:hover {
+	  opacity: 0.7;
+	}
+	
+	input[type=number]{
+    width: 50px;
+	height: 50px;
+	text-align: center;
+	font-size:20px
+	} 
+	
+	input[type=number]::-webkit-inner-spin-button, 
+	input[type=number]::-webkit-outer-spin-button {  
+
+    opacity: 1;
+
+}
+	</style>
 </head>
 <body>
 
@@ -60,25 +104,19 @@
     <div class="container">
     <?php include 'categoryBar.php' ?>
     <div class="rightColumn">
-    <?php
-    echo "<div class='product'>";
-    echo "<img class='product-image' src='images/productid".$row['id'].".jpg' alt=''>";
-    echo "<span class='product-desc'>".$row['product_name']."</span><br>";
-    echo "<span class='product-price'>".$row['price']."</span>";
-    echo "</div>";
-  
-    ?>
-
-    <div class="product product-details">
-    <?php echo $row['description'] ?><br><br>
-    <span>Order Quantity</span><br><br>
-    <form action="" method="POST">
-    <input type="number" id="purchaseQty" class="quantity" name="quantity" min="0" value="1">
-    <br><br>
-    
-    <input type="submit" value="Add to cart">
-    </form>
-    </div>
+	
+	<div class="card">
+	  <img src=images/productid<?php echo $row['id'] ?>.jpg style="width:100%">
+	  <h1><?php echo $row['product_name'] ?></h1>
+	  <p class="price">$<?php echo $row['price'] ?><br></p>
+	  <p><?php echo $row['description'] ?><br></p>
+	  <form action="" method="POST">
+	  <input type="number" id="purchaseQty" class="quantity" name="quantity" min="1" max="99" value="1">
+	  <p><button type="submit" value="Add to cart">Add to Cart</button></p>
+	  </form>
+	</div>
+	
+	
      </div>
     </div>
 </body>
