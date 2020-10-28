@@ -17,6 +17,17 @@
     
 }
 
+.profilerightColumn {
+	margin-right: 20%;
+	margin-left: 10%;
+    padding: 20px 20px 50px 30px;
+    color: #31160c;
+    min-height: 500px;
+    font-size: 120%;
+	text-decoration: none;
+    
+}
+
 .rightColumn {
 	margin: auto;
 	padding-top: 20px;

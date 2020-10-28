@@ -108,8 +108,7 @@
 
     include 'header.php';
     ?>
-    <div class="container">
-    <div class="rightColumn" style='max-width:80%;'>
+    <div class="rightColumn" style='min-width:85%;'>
         <h1 style="text-align:center">Cart</h1>
         <form action="<?php echo $_SERVER['PHP_SELF']?>" method='POST'>
         <input type="submit" style="display:none" value="Update Cart" id="updateCart" name="updateCart">
@@ -176,6 +175,8 @@
 
         </div>
 		
+		
+		<div class="container" style="text-align:center; min-width:85%">
 		<?php
 		
 		//Recommendations = Suggest product from the same category? Limit items shown to 4.

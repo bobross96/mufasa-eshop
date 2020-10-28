@@ -38,6 +38,7 @@ $row = $result -> fetch_assoc();
         <ul><a href="order_history.php">Order history</a></ul>
         </nav>
     </div>
+<<<<<<< Updated upstream
     <div class="rightColumn">
         
         
@@ -47,6 +48,20 @@ $row = $result -> fetch_assoc();
         
     
     </div>
+=======
+    <form action="" method='POST'>
+    <div class="profilerightColumn">
+        
+        <div class="profile">
+            <div><span>Username</span>:<span><?php echo $_SESSION['valid_user']; ?></div><br>
+            <div><span>Email</span>:<span><input id="emailInput" name="emailInput" type="text" value="<?php echo $row['email']; ?>" readonly required> <button type='button' id="emailEdit" >Edit</button></div><br>
+            <div><span>Address</span>:<span><input id="addressInput" name="addressInput" type="text" value="<?php echo $row['address']; ?>" readonly required> <button type='button' id="addressEdit" >Edit</button></div><br>
+            <div><span>Postal Code</span>:<span><input id="postalCodeInput" name="postalCodeInput" type="text" value="<?php echo $row['postal_code']; ?>" readonly required> <button type='button' id="postalCodeEdit">Edit</button></div><br>
+            <button id="submitButton" type="submit" value="Update" name="update" style="display:none" >Update</button>
+		</div>
+	</div>
+    </form>
+>>>>>>> Stashed changes
     </div>
 </body>
 </html>

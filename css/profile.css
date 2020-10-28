@@ -1,0 +1,20 @@
+input:read-only {
+    background-color: lightgrey;
+  }
+  
+.profile div {
+  display: flex;
+}
+
+.profile div span {
+  flex: 1;
+}
+
+.profile div span:first-of-type {
+  text-align: right;
+  padding-right: 5px;
+}
+
+.profile div span:last-of-type {
+  padding-left: 5px;
+}
