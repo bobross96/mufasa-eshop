@@ -109,7 +109,7 @@
     include 'header.php';
     ?>
     <div class="container">
-    <div class="rightColumn">
+    <div class="rightColumn" style='max-width:80%;'>
         <h1 style="text-align:center">Cart</h1>
         <form action="<?php echo $_SERVER['PHP_SELF']?>" method='POST'>
         <input type="submit" style="display:none" value="Update Cart" id="updateCart" name="updateCart">
@@ -176,12 +176,15 @@
 
         </div>
 		
-		<br><br><p style="text-align:center;">Based on the items in your cart, you may also like<br><br>
-		
 		<?php
 		
 		//Recommendations = Suggest product from the same category? Limit items shown to 4.
 		
+		if ($cartItemsQty == 0){
+			$class='class="hidden"';
+		}
+		else if ($cartItemsQty > 0){
+		echo "<br><br><p style='text-align:center'>Based on the items in your cart, you may also like<br><br>";
 		include "dbconnect.php";
 
 		if(isset($_GET['type'])){
@@ -199,25 +202,22 @@
 		#var_dump($result);
 
 		}
-		?>
-
-		<div class="rightColumn" style="max-width:80%">
-			<?php     
+		};
+		
+			echo "<div'. $class .'>";
+			
 			foreach ($result as $value) {
 
-				echo "<div class='product'>";
-				echo "<a href='product.php?id=".$value['id']."'>";
-				echo "<img class='product-image' src='images/productid".$value['id'].".jpg' alt=''>";
-				echo "<span class='product-desc' style='color: black; font-weight: bold'>".$value['product_name']."</span><br>";
-				echo "$","<class='product-price'>".$value['price']."<br>";
-				echo "</div>";
-			}
+					echo "<div class='product'>";
+					echo "<a href='product.php?id=".$value['id']."'>";
+					echo "<img class='product-image' src='images/productid".$value['id'].".jpg' alt=''>";
+					echo "<span class='product-desc' style='color: black; font-weight: bold'>".$value['product_name']."</span><br>";
+					echo "$","<class='product-price'>".$value['price']."<br>";
+					echo "</div>";
+				}
 
-			echo "</div>";
-			
-			?>
-		</div>
-		
+				
+		?>	
     </div>
     </div>
 </body>
