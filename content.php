@@ -18,7 +18,7 @@ $result = $db->query($query);
 }
 ?>
 
-<div class="rightColumn">
+<div class="listrightColumn">
     <?php     
     foreach ($result as $value) {
 
