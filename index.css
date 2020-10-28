@@ -19,7 +19,9 @@
 
 .rightColumn {
 	margin: auto;
-    color: #31160c;
+	padding-top: 20px;
+	padding-bottom: 50px;
+	color: #31160c;
     min-height: 500px;
     font-size: 120%;
 	text-decoration: none;
@@ -40,7 +42,7 @@ nav ul {
   }
 
   .product {
-    box-shadow: 0 4px 7px rgba(206,206,206,0.37);
+    box-shadow: 0 4px 7px rgba(206,206,206,0.25);
 	vertical-align: top;
     display: inline-block;
     /* To horizontally center images and caption */
@@ -48,7 +50,19 @@ nav ul {
     /* The width of the container also implies margin around the images. */
     width: 300px;
 	padding-top: 20px;
-	padding-bottom: 10px;
+	padding-bottom: 15px;
+  }
+  
+  .product:hover {
+	box-shadow: 0 4px 7px rgba(206,206,206,0.7);
+	vertical-align: top;
+    display: inline-block;
+    /* To horizontally center images and caption */
+    text-align: center;
+    /* The width of the container also implies margin around the images. */
+    width: 300px;
+	padding-top: 20px;
+	padding-bottom: 15px;
   }
   
   .product:hover {
