@@ -75,18 +75,6 @@ nav ul {
 	padding-top: 20px;
 	padding-bottom: 15px;
   }
-  
-  .product:hover {
-	box-shadow: 0 4px 7px rgba(206,206,206,0.15);
-	vertical-align: top;
-    display: inline-block;
-    /* To horizontally center images and caption */
-    text-align: center;
-    /* The width of the container also implies margin around the images. */
-    width: 300px;
-	padding-top: 20px;
-	padding-bottom: 10px;
-  }
 
   .landing-page {
     vertical-align: top;

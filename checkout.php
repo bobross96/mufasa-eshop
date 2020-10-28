@@ -16,7 +16,10 @@
         $totalPrice += $value['quantity']*$value['price'];
     }
 
-    
+    $deliveryQuery = "SELECT * FROM users WHERE id = $user_idINT";
+    $deliveryDetails = $db->query($deliveryQuery);
+    $row = $deliveryDetails -> fetch_assoc();
+
 
 
 ?>
@@ -46,11 +49,11 @@
             <h2>Deliver to:</h2>
             <div class="form-element">
             <label for="address">Address:</label>
-            <input type="text" class="form-input" name="address" required onchange=validateAdd(this.value)><br>
+            <input type="text" class="form-input" name="address" value="<?php echo $row['address'] ?>" required onchange=validateAdd(this.value)><br>
             </div>
             <div class="form-element">
             <label for="postalCode">Postal Code:</label>
-            <input type="text" class="form-input" name="postalCode" required onchange=validatePostalCode(this.value)><br>
+            <input type="text" class="form-input" name="postalCode" value="<?php echo $row['postal_code'] ?>" required onchange=validatePostalCode(this.value)><br>
             </div>
         </div>
         <div class="items-cart">
@@ -91,7 +94,7 @@
         </div>
         <div style="text-align:center">
         
-        <input type="submit" value="Confirm Payment" name="order">
+        <input type="submit" id="confirmPayment" value="Confirm Payment" name="order">
         
         </div>
     </div>
