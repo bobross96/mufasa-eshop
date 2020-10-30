@@ -1,21 +1,79 @@
 <?php
 include "dbconnect.php";
 
-
-
-if(isset($_GET['type'])){
+if((isset($_GET['type'])) || (isset($_GET['brand']))){
     $category = $_GET['type'];
-    $query = "SELECT * FROM products WHERE category = '$category'";
+    $brand = $_GET['brand'];
+    //no sorting, will query as per normal
+    $query = "SELECT * FROM products WHERE ";
+                
+                if (isset($_GET['type'])){
+                   
+                    $query .= "category IN ('$category') ";
+                   
+                }
+                if ((isset($_GET['type'])) && (isset($_GET['brand']))){
+                    $query .= "AND";
+                }
+                if (isset($_GET['brand'])){
+                    $query .= "brand IN ('$brand') ";
+                }
+                $query .= "ORDER BY price ASC";
+                $result = $db->query($query);
     $result = $db->query($query);
-    if (!$result){
-        echo("Error description: " .$db->error. "<br>");
+
+    //got sorting, will override the result from above
+    if (isset($_POST['sortType'])){
+
+        switch ($_POST['sortType']) {
+            case 'highToLow':
+                $sortBy = 'highToLow';
+                $query = "SELECT * FROM products WHERE ";
+                
+                if (isset($_GET['type'])){
+                   
+                    $query .= "category IN ('$category') ";
+                   
+                }
+                if ((isset($_GET['type'])) && (isset($_GET['brand']))){
+                    $query .= "AND";
+                }
+                if (isset($_GET['brand'])){
+                    $query .= "brand IN ('$brand') ";
+                }
+                $query .= "ORDER BY price DESC";
+
+                $result = $db->query($query);
+                break;
+            case 'lowToHigh':
+                $sortBy = 'lowToHigh';
+                $query = "SELECT * FROM products WHERE ";
+                
+                if (isset($_GET['type'])){
+                   
+                    $query .= "category IN ('$category') ";
+                   
+                }
+                if ((isset($_GET['type'])) && (isset($_GET['brand']))){
+                    $query .= "AND";
+                }
+                if (isset($_GET['brand'])){
+                    $query .= "brand IN ('$brand') ";
+                }
+                $query .= "ORDER BY price ASC";
+                $result = $db->query($query);
+                break;
+            default:
+
+                break;
+        }
     }
 }
 
 
 
 else {
-    echo $_GET['type'];
+    
     $query = "SELECT * FROM products ";
     $result = $db->query($query);
 
@@ -47,7 +105,8 @@ else {
     <!--  sorting bar above products   -->
     <div class="sorting-header" >
         <div>
-            <form action="<?php echo $_SERVER['PHP_SELF']?>" method="POST">
+            <!-- request uri retains the query parameter -->
+            <form action="<?php echo $_SERVER['REQUEST_URI']?>" method="POST">
             <label for="sortOption">Sort By:</label>
             <select name="sortType" id="sortOption" onchange="this.form.submit()">
             <option value="">---</option>

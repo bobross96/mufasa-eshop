@@ -3,7 +3,7 @@ include 'sessionPolice.php';
 include 'dbconnect.php';
 
     $user_idINT = (int)$_SESSION['user_id'];
-    $orders_query = "SELECT * FROM mufasa_orders WHERE user_id = $user_idINT";
+    $orders_query = "SELECT * FROM mufasa_orders WHERE user_id = $user_idINT ORDER BY id DESC";
     $orders_result = $db->query($orders_query);
 
 
@@ -37,7 +37,7 @@ include 'dbconnect.php';
 
             foreach ($orders_result as $orderInfo) {
                 $orderID = $orderInfo['id']; 
-                $getProducts = "SELECT * FROM product_orders WHERE order_id = $orderID";
+                $getProducts = "SELECT * FROM product_orders WHERE order_id = $orderID ";
                 $productResult = $db->query($getProducts) ;
                 ?>
 

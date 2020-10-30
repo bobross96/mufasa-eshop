@@ -129,9 +129,10 @@
         ?>    
         <tr>
             <td>
+            <a href="product.php?id=<?php echo $product_id; ?>">
             <figure>
             <img src='images/productid<?php echo $product_id; ?>.jpg' alt='cart-image' width='100px' height='100px'>
-            <figcaption><?php echo $productInfo['product_name']; ?></figcaption></figure>
+            <figcaption><?php echo $productInfo['product_name']; ?></figcaption></figure></a>
             </td>
             <td>
             <button style='vertical-align:top' type="button" class='minusButton' name='minusButton' value='<?php echo $product_id; ?>' id='buttonMinus<?php echo $product_id?>' <?php if ($quantity == 1){ echo "disabled";} ?>>-</button>&nbsp;
@@ -182,6 +183,12 @@
         
 
         </div>
+        <?php 
+
+        include 'recommendation.php';
+        
+        ?>
+
 		
 		
 			

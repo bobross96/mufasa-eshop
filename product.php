@@ -70,7 +70,7 @@
 	  <div style=" width; width:350px">
 	  <img src=images/productid<?php echo $row['id'] ?>.jpg style="width:100%">
 	  </div>
-	  <div style="">
+	  <div style="max-width: 400px">
 	  <h1><?php echo $row['product_name'] ?></h1>
 	  <p class="price">$<?php echo $row['price'] ?><br></p>
 	  <p><?php echo $row['description'] ?><br></p>

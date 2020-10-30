@@ -5,6 +5,7 @@ create table products (
     product_name varchar(255) not null,
     price float(9,2),
     category varchar(255),
+    brand varchar(255),
     description text(1000),
     stock int not null 
 );
