@@ -13,12 +13,12 @@ Current Features
 2) session police that kicks you out if youre not logged in / session expire
 3) add to cart + change cart items + delete cart items
 4) checkout
-5) filter products by category
-
+5) filter products by category / brand
+6) Add send email to user upon ordering + delete cart items 
+7) Got stock
+8) Recommendation 
 
 TO DO
 1) Add search functionality
 2) Add review section to each product
-3) Add send email to user upon ordering + delete cart items 
-4) Add stock ? 
-5) Recommendation (if got time)
+3) Admin Page (to update order status + change stock)
