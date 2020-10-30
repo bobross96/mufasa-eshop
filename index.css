@@ -140,3 +140,9 @@ nav ul {
 
 
     body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+.sorting-header {
+  display: flex;
+  justify-content: flex-end;
+}

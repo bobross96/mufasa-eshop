@@ -7,6 +7,9 @@
     <ul><a href="member.php?type=gaming device">Gaming Devices</a></ul>
     <ul><a href="member.php?type=GPU">GPU</a></ul>
     <ul><a href="member.php?type=Laptop">Laptops</a></ul>
+    <ul>Brands:</ul>
+    <ul><input type="checkbox" name="tb" id="price">TB</ul>
+    <ul><input type="checkbox" name="pc" id="price">PC</ul>
 
     </nav>
 </div>

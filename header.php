@@ -8,17 +8,12 @@
  
 
  $userID = (int)$_SESSION['user_id'];
- $select = "SELECT * FROM cart_product WHERE user_id = $userID ";
- $db->query($select);
+ $cartItemsQty = 0;
+ foreach ($_SESSION['cart'] as $key => $value) {
+	 $cartItemsQty += $value;
+ }
  
- if(($db->affected_rows) > 0){
-	 $cartItemsQty = $db->affected_rows;
-	 //echo "poop";
- }
- else {
-	//echo "poop";
-	 $cartItemsQty = 0;
- }
+
 	
  //test
 

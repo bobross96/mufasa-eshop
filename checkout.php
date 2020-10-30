@@ -6,15 +6,12 @@
     $user_idINT = (int)$_SESSION['user_id'];
   
 
-    // query all the orders depending on user id 
-    $query = "SELECT * FROM cart_product c,products p WHERE c.user_id = $user_idINT AND c.product_id = p.id"; 
-    
-    $result = $db->query($query);
+    // query all the orders from session cart
+
+   
 
     $totalPrice = 0;
-    foreach ($result as $value) {
-        $totalPrice += $value['quantity']*$value['price'];
-    }
+    
 
     $deliveryQuery = "SELECT * FROM users WHERE id = $user_idINT";
     $deliveryDetails = $db->query($deliveryQuery);
@@ -63,17 +60,27 @@
                         <th>Quantity</th>
                         <th>Price</th>
                     </tr>
-                    <?php foreach ($result as $value) { ?>
+                    <?php 
+                    $totalPrice  = 0;
+                    foreach ($_SESSION['cart'] as $product_id => $quantity) { 
+                        $productQuery = "SELECT * FROM products WHERE id = $product_id";
+                        $output = $db -> query($productQuery);
+                        $productInfo = $output -> fetch_assoc();
+                        
+                        ?>
                         <tr>
                         <td>
                         <figure>
-                        <img src='images/productid<?php echo $value['product_id']?>.jpg' alt='cart-image' width='100px' height='100px'>
-                        <figcaption><?php echo $value['product_name'] ?></figcaption>
+                        <img src='images/productid<?php echo $product_id ?>.jpg' alt='cart-image' width='100px' height='100px'>
+                        <figcaption><?php echo $productInfo['product_name'] ?></figcaption>
                         </td>
-                        <td><?php echo $value['quantity'] ?></td>
-                        <td>$<?php echo $value['price']*$value['quantity'] ?></td>
+                        <td><?php echo $quantity ?></td>
+                        <td>$<?php echo $productInfo['price']*$quantity ?></td>
                         </tr>
                     <?php
+                    
+                    $totalPrice += $productInfo['price']*$quantity;
+
                     }
 
                     ?>

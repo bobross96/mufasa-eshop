@@ -2,7 +2,7 @@
     include 'dbconnect.php';
     //this starts session and loads the session login thingy from login
     include 'sessionPolice.php';
-//get the query param, then select from database info about that product
+	//get the query param, then select from database info about that product
     
     $product_id = $_GET['id'];
     $query = "SELECT * from products WHERE id = ".$product_id."";
@@ -18,26 +18,19 @@
         $qtyINT = (int)$_POST['quantity'];
         $product_idINT = (int)$product_id;
 		$useridINT = (int)$_SESSION['user_id'];
-		
-		if ($qtyINT > $row['stock']){
+		$totalQtyInCart = $_SESSION['cart'][$product_idINT] + $qtyINT;  
+
+
+		if ($qtyInt > $row['stock']){
 			echo "<script>alert('Please order below the stock value');</script>";
 		}
 
+		else if ($totalQtyInCart > $row['stock']){
+			echo "<script>alert('Total items in cart exceed stock value. Please check cart');</script>";
+		}
 		else {
-		
-
-			/* $addToCart = [
-				'product_id' => $product_idINT,
-				'quantity' => $qtyINT
-			]; */
+	
 			$_SESSION['cart'][$product_idINT] += $qtyINT;
-			
-
-			//$update = "UPDATE cart_product SET quantity = quantity + $qtyINT WHERE product_id = $product_idINT AND user_id = $useridINT ";
-
-			//$result = $db->query($update);
-			
-			//if product id was not in cart , will insert instead
 			if(($db->affected_rows) == 0){
 
 				$insert = "INSERT INTO cart_product VALUES (NULL,$qtyINT,$product_idINT,$useridINT)";
@@ -45,15 +38,10 @@
 				$db->query($insert);
 			
 			}
-
 			echo "<script>alert('Item successfully added to cart')</script>";
-
 		}
         
-
-        
     }
-    // access other properties like row['column_name']
 
 ?>
 
@@ -66,54 +54,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Product</title>
     <link rel="stylesheet" href="index.css">
+	<link rel="stylesheet" href="css/product.css">
     <script type="module" src="javascript/product.js"></script>
-	<style>
-	.card {
-	  max-width: 300px;
-	  margin: auto;
-	  text-align: center;
-	  font-family: arial;
-	}
-
-	.price {
-	  color: grey;
-	  font-size: 22px;
-	}
-
-	.card button {
-	  border: none;
-	  outline: 0;
-	  padding: 12px;
-	  color: white;
-	  background-color: #000;
-	  text-align: center;
-	  cursor: pointer;
-	  width: 100%;
-	  font-size: 18px;
-	}
-
-	.card button:hover {
-	  opacity: 0.7;
-	}
-
-	.card button:disabled {
-		opacity : 0.4
-	}
 	
-	input[type=number]{
-    width: 50px;
-	height: 50px;
-	text-align: center;
-	font-size:20px;
-	} 
-	
-	input[type=number]::-webkit-inner-spin-button, 
-	input[type=number]::-webkit-outer-spin-button {  
-
-    opacity: 1;
-
-}
-	</style>
 </head>
 <body>
 
@@ -121,9 +64,13 @@
     <div class="container">
     <?php include 'categoryBar.php' ?>
     <div class="rightColumn">
+		
 	
 	<div class="card">
+	  <div style=" width; width:350px">
 	  <img src=images/productid<?php echo $row['id'] ?>.jpg style="width:100%">
+	  </div>
+	  <div style="">
 	  <h1><?php echo $row['product_name'] ?></h1>
 	  <p class="price">$<?php echo $row['price'] ?><br></p>
 	  <p><?php echo $row['description'] ?><br></p>
@@ -132,6 +79,7 @@
 	  <input type="number" id="purchaseQty" class="quantity" name="quantity" min="1" max="99" value="1">
 	  <p><button type="submit" id="submitButton" value="Add to cart">Add to Cart</button></p>
 	  </form>
+	  </div>
 	</div>
 	
 	

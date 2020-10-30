@@ -41,15 +41,22 @@
             }
 
         
-
-        if (isset($currentidINT)){  
-            echo "<script>location.href='#".$currentidINT."'";
-            echo "</script>";
-            }
+        
     }
 
 
 ?>
+
+<script>
+        document.addEventListener("DOMContentLoaded", function(event) { 
+            var scrollpos = sessionStorage.getItem('scrollpos');
+            if (scrollpos) window.scrollTo(0, scrollpos);
+        });
+
+        window.onbeforeunload = function(e) {
+            sessionStorage.setItem('scrollpos', window.scrollY);
+        };
+</script>
 
 
 
@@ -72,11 +79,16 @@
 	input[type=number]::-webkit-outer-spin-button 
 	{  
 	opacity: 0;
-	}
+    }
+    
+
+        input[type=number] {
+    -moz-appearance: textfield;
+    }
 	</style>
 </head>
 <body>
-  
+
     <?php 
 
     include 'header.php';
@@ -104,12 +116,15 @@
         </tr>
         <?php 
         
+        $totalPrice = 0;
+
         foreach ($_SESSION['cart'] as $product_id => $quantity) {
         //query for product info here 
         $productQuery = "SELECT * FROM products WHERE id = $product_id";
         $output = $db -> query($productQuery);
         $productInfo = $output -> fetch_assoc();
         
+
 
         ?>    
         <tr>
@@ -119,7 +134,7 @@
             <figcaption><?php echo $productInfo['product_name']; ?></figcaption></figure>
             </td>
             <td>
-            <button style='vertical-align:top' type="button" class='minusButton' name='minusButton' value='<?php echo $product_id; ?>' id='buttonMinus<?php echo $product_id?>' <?php if ($value['quantity'] == '1'){ echo "disabled";} ?>>-</button>&nbsp;
+            <button style='vertical-align:top' type="button" class='minusButton' name='minusButton' value='<?php echo $product_id; ?>' id='buttonMinus<?php echo $product_id?>' <?php if ($quantity == 1){ echo "disabled";} ?>>-</button>&nbsp;
             <input type='number' id='<?php echo $product_id; ?>' class='product-qty-input qtyInput'  name='<?php echo $product_id; ?>' value='<?php echo $quantity; ?>' min='1' onchange="updatePrice(this.id)">
             &nbsp;<button style='vertical-align:top' class='plusButton' id='buttonPlus<?php echo $product_id ?>' name='plusButton' value='<?php echo $product_id; ?>'>+</button>&nbsp;
             &nbsp;<button name='deleteButton' value='<?php echo $product_id ?>' style='vertical-align:top ; color:red' type='submit'>X</button>
@@ -131,11 +146,19 @@
             </td>
             </tr>
         <?php
-        }
+        
+        
+        $totalPrice += $productInfo['price']*$quantity;
 
-        echo "<tr><td colspan='2'>Total Price:</td>";
-        echo "<td id='totalPrice'>$".$totalPrice."</td>";
-        echo "</tr>";
+        }
+        ?>
+
+        
+        <tr><td colspan='2'>Total Price:</td>
+        <td id='totalPrice'>$<?php echo $totalPrice; ?></td>
+        </tr>
+        
+        <?php
         }
         ?>
 

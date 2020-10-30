@@ -32,7 +32,9 @@ function minusQty(e) {
     input.value = 1;
   } else {
     input.value--;
+    updatePrice(id)
   }
+
 }
 
 

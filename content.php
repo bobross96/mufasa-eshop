@@ -1,25 +1,66 @@
 <?php
 include "dbconnect.php";
 
+
+
 if(isset($_GET['type'])){
     $category = $_GET['type'];
-    $query = "SELECT * FROM products WHERE category =\"$category\"";
+    $query = "SELECT * FROM products WHERE category = '$category'";
     $result = $db->query($query);
     if (!$result){
         echo("Error description: " .$db->error. "<br>");
     }
 }
 
+
+
 else {
-$query = "SELECT * FROM products";
-$result = $db->query($query);
-#var_dump($result);
+    echo $_GET['type'];
+    $query = "SELECT * FROM products ";
+    $result = $db->query($query);
+
+    
+    if (isset($_POST['sortType'])){
+        switch ($_POST['sortType']) {
+            case 'highToLow':
+                $sortBy = 'highToLow';
+                $query = "SELECT * FROM products ORDER BY price DESC";
+                $result = $db->query($query);
+                break;
+            case 'lowToHigh':
+                $sortBy = 'lowToHigh';
+                $query = "SELECT * FROM products ORDER BY price ASC";
+                $result = $db->query($query);
+                break;
+            default:
+
+                break;
+        }
+    }
+    
+    #var_dump($result);
 
 }
 ?>
 
 <div class="listrightColumn">
-    <?php     
+    <!--  sorting bar above products   -->
+    <div class="sorting-header" >
+        <div>
+            <form action="<?php echo $_SERVER['PHP_SELF']?>" method="POST">
+            <label for="sortOption">Sort By:</label>
+            <select name="sortType" id="sortOption" onchange="this.form.submit()">
+            <option value="">---</option>
+                <option  value="lowToHigh" <?php if ($sortBy == 'lowToHigh') {echo 'selected';} ?>>Price low to high</option>
+                <option  value="highToLow" <?php if ($sortBy == 'highToLow') {echo 'selected';} ?>>Price high to low</option>
+            </select>
+            </form>
+        </div>
+    
+
+    </div>
+    <?php
+    
     foreach ($result as $value) {
 
         echo "<div class='product'>";

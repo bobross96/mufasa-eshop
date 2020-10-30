@@ -6,26 +6,8 @@ include 'sessionPolice.php';
 //trasnfer items from cart to order
 $user_idINT = (int)$_SESSION['user_id'];
 
-// query all the orders depending on user id 
-$query = "SELECT * FROM cart_product c,products p WHERE c.user_id = $user_idINT AND c.product_id = p.id"; 
-
-$result = $db->query($query);
-
-$totalPrice = 0;
-$message = "Greetings from Mufasa E Shop ".$_SESSION['valid_user']."\n";
-$message .= "Your order is below:\n";
-
-foreach ($result as $value) {
-    $cart_id = $value['id'];
-    $totalPrice += $value['quantity']*$value['price'];
-    $message .= "Product name: ".$value['product_name']." Quantity: ".$value['quantity']." Price:$ ".$value['quantity']*$value['price']."\n";
-
-}
-$message .= "Total Price:$ ".$totalPrice."\n";
 
 
-$orders_query = "SELECT * FROM mufasa_orders";
-$orders_result = $db->query($orders_query);
 
 if($_SERVER["REQUEST_METHOD"] == "POST" && $_POST['order'] == "Confirm Payment"){
     
@@ -46,30 +28,43 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && $_POST['order'] == "Confirm Payment")
         $update_address = "UPDATE users SET address = '$address', postal_code = '$postalCode' WHERE id = $user_idINT";
         $db -> query($update_address);
     }
+
+    $totalPrice = 0;
+    foreach ($_SESSION['cart'] as $product_id => $quantity) {
+        $productQuery = "SELECT * FROM products WHERE id = $product_id";
+        $output = $db -> query($productQuery);
+        $productInfo = $output -> fetch_assoc();
+        $totalPrice += $quantity*$productInfo['price'];
+    }
     
-    //insert new order 
+    //create new order in mufasa orders
     $insert_order = "INSERT INTO mufasa_orders VALUES (NULL,$user_idINT,CURRENT_TIMESTAMP,$totalPrice,'Created') ";
-    
     $db->query($insert_order);
-    // add invididual products into the product_orders table from cart
+    //returns id of recently inserted row
     $order_id = $db->insert_id;
 
-    $transferCart = "SELECT * FROM cart_product WHERE user_id = $user_idINT";
-    $result = $db->query($transferCart);
+    
+    
+    $message = "Greetings from Mufasa E Shop ".$_SESSION['valid_user']."\n";
+    $message .= "Your order is below:\n";
 
-
-    foreach ($result as $value) {
-        $product_idINT = (int)$value['product_id'];
-        $quantityINT =(int)$value['quantity'];
-        $insert_product_order = "INSERT INTO product_orders VALUES (NULL,$order_id,$product_idINT,$quantityINT)";
+    foreach ($_SESSION['cart'] as $product_id => $quantity) {
+        $productQuery = "SELECT * FROM products WHERE id = $product_id";
+        $output = $db -> query($productQuery);
+        $productInfo = $output -> fetch_assoc();
+        $message .= "Product name: ".$productInfo['product_name']." Quantity: ".$quantity." Price:$ ".$quantity*$productInfo['price']."\n";
+        
+        //insert into product orders table once order confirmed
+        $insert_product_order = "INSERT INTO product_orders VALUES (NULL,$order_id,$product_id,$quantity)";
         $db->query($insert_product_order);
+        //reduce stock for the item lol
+        $updateStock = "UPDATE products SET stock = stock - $quantity WHERE id = $product_id ";
+        $db -> query($updateStock);
     }
+    $message .= "Total Price:$ ".$totalPrice."\n";
 
-    $cart_idINT = (int)$cart_id;
-    //delete items from cart
-    $delete = "DELETE FROM cart_product WHERE user_id=$user_idINT";
-    $db->query($delete);
-
+    //unset cart session
+    unset($_SESSION['cart']);
 
     //send mail 
     $message .= "Expected delivery date is: -fakedate-\n";
