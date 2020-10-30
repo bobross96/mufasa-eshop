@@ -48,11 +48,16 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && $_POST['order'] == "Confirm Payment")
     }
     
     //insert new order 
-    $insert_order = "INSERT INTO mufasa_orders VALUES (NULL,$user_idINT,CURRENT_TIMESTAMP,$totalPrice) ";
+    $insert_order = "INSERT INTO mufasa_orders VALUES (NULL,$user_idINT,CURRENT_TIMESTAMP,$totalPrice,'Created') ";
     
     $db->query($insert_order);
     // add invididual products into the product_orders table from cart
     $order_id = $db->insert_id;
+
+    $transferCart = "SELECT * FROM cart_product WHERE user_id = $user_idINT";
+    $result = $db->query($transferCart);
+
+
     foreach ($result as $value) {
         $product_idINT = (int)$value['product_id'];
         $quantityINT =(int)$value['quantity'];

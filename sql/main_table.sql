@@ -5,14 +5,16 @@ create table products (
     product_name varchar(255) not null,
     price float(9,2),
     category varchar(255),
-    description text(1000)
+    description text(1000),
+    stock int not null 
 );
 
 create table mufasa_orders (
     id int unsigned not null auto_increment primary key,
     user_id int unsigned not null references users(id),
     order_date DATETIME,
-    total_amount float(9,2)
+    total_amount float(9,2),
+    order_status varchar(255)
 );
 
 create table product_orders(
@@ -31,3 +33,8 @@ create table cart_product(
 );
 
 
+create table reviews(
+    id int unsigned not null auto_increment primary key,
+    user_id int unsiged not null references users(id),
+    
+)

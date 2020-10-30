@@ -17,6 +17,16 @@
     
 }
 
+.nextToListRightColumn {
+  margin-left: 20%;
+    padding: 10px 20px 50px 30px;
+    margin-bottom: 0px;
+    color: #31160c;
+    min-height: 500px;
+    font-size: 120%;
+	text-decoration: none;
+}
+
 .profilerightColumn {
 	margin-right: 20%;
 	margin-left: 10%;
@@ -128,3 +138,5 @@ nav ul {
 		  color: dimgray;
 		}
 
+
+    body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

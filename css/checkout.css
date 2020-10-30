@@ -1,19 +1,29 @@
-.details-form{
-    margin-left: 100px;
+ .details-form{
+    
     padding: 30px;
     border: 1px black solid;
-    display:inline-block; 
-    vertical-align: top;
+    max-height: 200px;
+    
 }
 
 .items-cart{
     padding-left: 10px;
-    display:inline-block; 
-    vertical-align: top;
+   
 }
 
 
 .form-element label {
-    display: inline-block;
     width: 150px;
+}
+
+
+.flex-box{
+    display: flex;
+    align-items: top;
+    justify-content: center;
+
+}
+
+#confirmPayment {
+    margin-top: 50px;
 }

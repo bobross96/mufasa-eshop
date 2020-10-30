@@ -1,38 +1,27 @@
-let addressEdit = document.getElementById('addressEdit')
-let addressInput = document.getElementById('addressInput')
-let postalCodeEdit = document.getElementById('postalCodeEdit')
-let postalCodeInput = document.getElementById('postalCodeInput')
-let emailEdit = document.getElementById('emailEdit')
-let emailInput = document.getElementById('emailInput')
 
+let addressInput = document.getElementById('addressInput')
+let postalCodeInput = document.getElementById('postalCodeInput')
+let emailInput = document.getElementById('emailInput')
+let editAll = document.getElementById('editAll')
 
 let submitButton = document.getElementById('submitButton')
 
 
 
-addressEdit.addEventListener('click',allowAddressEdit,false)
-postalCodeEdit.addEventListener('click',allowPostalCodeEdit,false)
-emailEdit.addEventListener('click',allowEmailEdit,false)
 addressInput.addEventListener('change',validateAddress,false)
 postalCodeInput.addEventListener('change',validatePostalCode,false)
 emailInput.addEventListener('change',validateEmail,false)
+editAll.addEventListener('click',allowEditAll,false)
 
-
-function allowAddressEdit(){
+function allowEditAll(){
     addressInput.readOnly = false;
-    submitButton.style.display = 'block' 
-    
-}
-
-function allowPostalCodeEdit(){
     postalCodeInput.readOnly = false;
+    emailInput.readOnly = false;
     submitButton.style.display = 'block' 
 }
 
-function allowEmailEdit(){
-    emailInput.readOnly = false;
-    submitButton.style.display = 'block'
-}
+
+
 
 
 

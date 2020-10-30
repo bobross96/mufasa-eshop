@@ -32,7 +32,7 @@
 
 
 <div style="border-style: none; padding:10px; text-align: center; min-width:900px; box-shadow: 0 4px 7px rgba(206,206,206,0.37);">
-	<a href="member.php"><img style="padding: 0px 16px; vertical-align: middle" src="images/logo.jpg" alt="logo" width="100px" height="100px"></a>
+	<a href="member.php"><img style="padding: 0px 16px; vertical-align: middle" src="images/logo.png" alt="logo" width="100px" height="100px"></a>
     <span><label for="search"></label><input name="search" type="text" placeholder="Search for your products here" style="width:25%;padding: 16px 16px;margin-left: 2%;vertical-align: middle"></span>
 	<button type="submit" style="padding: 16px 16px; vertical-align: middle"><i class="fa fa-search"></i></button>
     <a href="cart.php" style="text-decoration: none; color: black; vertical-align: middle">
@@ -43,4 +43,6 @@
 	<a href="profile.php" style="text-decoration: none; color: black; vertical-align: middle"><span style="margin-right: 2%"><img src="images/user.svg" alt="bye" width="30px" height="30px" style="vertical-align: middle; text-align: right; margin-right: 2px; text-decoration: none;">Welcome <?php echo $_SESSION['valid_user'] ?></span></a>
 	<a href="logout.php" style="color: black; text-decoration: none"><span style="" ><img src="images/logout.svg" alt="bye" width="30px" height="30px" style="vertical-align: middle; text-align: right; margin-right: 2px">Logout</span></a>
 </div>
+
+
 

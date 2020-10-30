@@ -18,7 +18,8 @@ if (isset($_POST['username'])){
     if ($result->num_rows>0){
         session_start();
         $_SESSION['user_id'] = $row['id'];
-        $_SESSION['valid_user'] = $username;
+		$_SESSION['valid_user'] = $username;
+		$_SESSION['cart'] = array();
 
         echo $row["id"];
         echo $_SESSION["user_id"];

@@ -1,7 +1,8 @@
 //regex code to validate the delivery address
 
 confirmButton = document.getElementById('confirmPayment')
-
+address = document.getElementById('address')
+postalCode = document.getElementById('postalCode')
 
 function validateAdd(address){
     
@@ -14,6 +15,8 @@ function validateAdd(address){
     else {
         confirmButton.disabled = false;
     }
+
+   
     
 }
 
@@ -30,4 +33,6 @@ function validatePostalCode(postcode) {
     else {
         confirmButton.disabled = false;
     }
+
+    
 }
