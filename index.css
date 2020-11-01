@@ -1,14 +1,14 @@
 .container {
     padding: 20px;
     width: 80%;
-	min-width: 1000px;
+	min-width: 900px;
     margin: auto;
 }
 
 
 .listrightColumn {
 	margin-left: 15%;
-    padding: 10px 20px 50px 30px;
+    padding: 10px 20px 20px 50px;
     margin-bottom: 0px;
     color: #31160c;
     min-height: 500px;
@@ -19,7 +19,7 @@
 
 .nextToListRightColumn {
   margin-left: 20%;
-    padding: 10px 20px 50px 30px;
+    padding: 10px 20px 20px 50px;
     margin-bottom: 0px;
     color: #31160c;
     min-height: 500px;
@@ -30,7 +30,7 @@
 .profilerightColumn {
 	margin-right: 20%;
 	margin-left: 10%;
-    padding: 20px 20px 50px 30px;
+    padding: 20px 20px 20px 50px;
     color: #31160c;
     min-height: 500px;
     font-size: 120%;
@@ -49,6 +49,15 @@
     
 }
 
+
+  .rightColumn button:hover {
+    opacity: 0.7;
+  }
+
+  .rightColumn button:disabled {
+      opacity : 0.4
+  }
+
 nav ul {
     list-style: none;
     text-decoration: none;
@@ -60,6 +69,7 @@ nav ul {
   
   nav {
     float: left;
+	color:dimgray;
   }
 
   .product {
@@ -144,5 +154,40 @@ nav ul {
 
 .sorting-header {
   display: flex;
-  justify-content: flex-end;
+  margin-top: 5px;
+  margin-bottom: 20px;
+  font-size: 83%;
+  color: dimgray;
+}
+
+
+.selected-nav {
+  font-weight: bold;
+}
+
+.top-header-container {
+  color: grey;
+  margin-top: 1%;
+  display: flex;
+  min-width:900px; 
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1%;
+}
+
+.bottom-header-container {
+  border-style: none; 
+  min-width:900px; 
+  background-color: whitesmoke;
+  
+  
+}
+
+.search-bar {
+  padding-left: 10px;
+}
+
+.search-button {
+  padding: 16px 16px; 
+  vertical-align: middle
 }

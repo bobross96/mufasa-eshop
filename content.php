@@ -13,12 +13,13 @@ if((isset($_GET['type'])) || (isset($_GET['brand']))){
                    
                 }
                 if ((isset($_GET['type'])) && (isset($_GET['brand']))){
-                    $query .= "AND";
+                    $query .= "AND ";
                 }
                 if (isset($_GET['brand'])){
                     $query .= "brand IN ('$brand') ";
                 }
                 $query .= "ORDER BY price ASC";
+                
                 $result = $db->query($query);
     $result = $db->query($query);
 
@@ -36,7 +37,7 @@ if((isset($_GET['type'])) || (isset($_GET['brand']))){
                    
                 }
                 if ((isset($_GET['type'])) && (isset($_GET['brand']))){
-                    $query .= "AND";
+                    $query .= "AND ";
                 }
                 if (isset($_GET['brand'])){
                     $query .= "brand IN ('$brand') ";
@@ -55,7 +56,7 @@ if((isset($_GET['type'])) || (isset($_GET['brand']))){
                    
                 }
                 if ((isset($_GET['type'])) && (isset($_GET['brand']))){
-                    $query .= "AND";
+                    $query .= "AND ";
                 }
                 if (isset($_GET['brand'])){
                     $query .= "brand IN ('$brand') ";
@@ -109,7 +110,7 @@ else {
             <form action="<?php echo $_SERVER['REQUEST_URI']?>" method="POST">
             <label for="sortOption">Sort By:</label>
             <select name="sortType" id="sortOption" onchange="this.form.submit()">
-            <option value="">---</option>
+            <option value="">Default</option>
                 <option  value="lowToHigh" <?php if ($sortBy == 'lowToHigh') {echo 'selected';} ?>>Price low to high</option>
                 <option  value="highToLow" <?php if ($sortBy == 'highToLow') {echo 'selected';} ?>>Price high to low</option>
             </select>

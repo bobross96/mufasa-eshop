@@ -1,0 +1,43 @@
+.minusButton{
+    vertical-align:top; 
+    border: none; 
+    outline: 0; 
+    color: white; 
+    background-color: #000; 
+    cursor: pointer; 
+    width: 30px; 
+    height:30px; 
+    font-size: 18px;
+}
+
+.plusButton{
+    border: none; 
+    outline: 0; 
+    color: white; 
+    background-color: #000; 
+    cursor: pointer; 
+    width: 30px; 
+    height:30px; 
+    font-size: 18px;
+}
+
+
+.itemTotalPrice{
+    vertical-align:center; 
+    font-size:18px; 
+    min-width: 60px;
+}
+
+
+
+.checkoutbutton {
+    border: none;
+    outline: 0;
+    padding: 12px;
+    color: white;
+    background-color: #000;
+    text-align: center;
+    cursor: pointer;
+    width: 120px;
+    font-size: 18px;
+  }
