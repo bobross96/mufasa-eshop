@@ -1,19 +1,18 @@
-td {
-    min-width : 200px;
-    text-align: center;
+td,th,tr{
+	text-align: center;
+    margin: auto;
+	width: auto; 
+	height: auto;
+	border-top: 1px solid #E1E8EE;
+    border-bottom: 1px solid #E1E8EE;
 }
 
-
-
-figcaption {
-    text-align: center;
-}
-
-
-
-
-
-table, tr,td,th{
-    
-    border : 1px groove black;
+table { 
+margin: auto; 
+min-width: 500px;
+border-top: 1px solid #E1E8EE;
+border-bottom: 1px solid #E1E8EE;
+height: auto;
+width: 40%; 
+border-spacing: 0;
 }
