@@ -65,7 +65,7 @@ include 'dbconnect.php';
                         </figcaption>
                         </figure>
                     </td>
-                    <td>Price:$ <?php echo $row['price']*$value['quantity']; ?> </td>
+                    <td>Price: $<?php echo $row['price']*$value['quantity']; ?> </td>
                     </tr>
                     <tr>
                     <td>Quantity:<?php echo $value['quantity']; ?></td>
@@ -77,7 +77,7 @@ include 'dbconnect.php';
                 ?>
                 <tr>
                     <td>Total Price:</td>
-                    <td>$ <?php echo $orderInfo['total_amount']; ?></td>
+                    <td>$<?php echo $orderInfo['total_amount']; ?></td>
                 </tr>
             </table>
             </div>

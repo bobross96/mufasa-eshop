@@ -1,9 +1,3 @@
-td {
-    min-width : 200px;
-    text-align: center;
-}
-
-
 
 figcaption {
     text-align: center;
@@ -13,9 +7,31 @@ figcaption {
 
 
 
-table, tr,td,th{
+td,th,tr{
+	text-align: center;
     margin: auto;
-    border : 1px groove black;
+	width: auto; 
+	height: auto;
+	border-top: 1px solid #E1E8EE;
+    border-bottom: 1px solid #E1E8EE;
 }
 
+table { 
+margin: auto; 
+min-width: 500px;
+border-top: 1px solid #E1E8EE;
+border-bottom: 1px solid #E1E8EE;
+height: auto;
+width: 40%; 
+border-spacing: 0;
+}
 
+input[type=number]{
+  width: 40px;
+  height: 30px;
+  text-align: center;
+  font-size:18px;
+  border: none;
+  outline: none;
+  }
+  

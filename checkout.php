@@ -40,25 +40,23 @@
     
     ?>
 <div class="container">    
-        <div class="flex-box">
-            <div class="details-form">
+            <div class="details-form" style="max-width:80%; text-align:center;">
                 <h1>Check Out</h1>            
-                <h2>Deliver to:</h2>
                 <div class="form-element">
-                <label for="address">Address:</label>
-                <input type="text" class="form-input" id="address" name="address" value="<?php echo $row['address'] ?>" required onchange=validateAdd(this.value)><br>
-                </div>
+                <label for="address">Address:</label><br>
+                <input type="text" size="30" class="form-input" id="address" name="address" value="<?php echo $row['address'] ?>" required onchange=validateAdd(this.value)><br>
+                </div><br>
                 <div class="form-element">
-                <label for="postalCode">Postal Code:</label>
-                <input type="text" class="form-input" id="postalCode" name="postalCode" value="<?php echo $row['postal_code'] ?>" required onchange=validatePostalCode(this.value)><br>
+                <label for="postalCode">Postal Code:</label><br>
+                <input type="text" size="10" class="form-input" id="postalCode" name="postalCode" value="<?php echo $row['postal_code'] ?>" required onchange=validatePostalCode(this.value)><br>
                 </div>
-            </div>
+            </div><br>
             <div class="items-cart">
                 <table>
                     <tr>
-                        <th>Product</th>
+                        <th><br>Product<br><br></th>
                         <th>Quantity</th>
-                        <th>Price</th>
+                        <th>Item Subtotal</th>
                     </tr>
                     <?php 
                     $totalPrice  = 0;
@@ -85,18 +83,19 @@
 
                     ?>
 
-                    <tr><td colspan='2'>Total Price:</td>
-                    <td>$<?php echo $totalPrice ?></td>
+                    <tr><td style="font-size:18px;"><br><b>Total Payment</b><br><br></td>
+					<td></td>
+                    <td><b>$</b><?php echo "<b>{$totalPrice}</b>"; ?></td>
                     </tr>
                 
                 
 
                 </table>
             </div>
-        </div>            
+                   
         <div style="text-align:center">
         
-        <input type="submit" id="confirmPayment" value="Confirm Payment" name="order">
+        <input type="submit" style="border: none; outline: 0; padding: 12px; color: white; background-color: #000; text-align: center; cursor: pointer; width: 180px; font-size: 18px;" id="confirmPayment" value="Confirm Payment" name="order"><br><br>
         
         </div>
     </div>

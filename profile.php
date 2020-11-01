@@ -72,7 +72,7 @@ $row = $result -> fetch_assoc();
                 <span><input id="postalCodeInput" name="postalCodeInput" type="text" value="<?php echo $row['postal_code']; ?>" readonly required>
                     
             </div><br>
-            <div  class="editButton">
+            <div class="editButton">
             <button type='button' id="editAll">Edit</button><br><br>
             <button id="submitButton" type="submit" value="Update" name="update" style="display:none" >Update</button>
             </div>
