@@ -96,7 +96,6 @@
     include 'header.php';
    
     ?>
-    <div class="rightColumn" style='min-width:85%;'>
         <h1 style="text-align:center">Cart</h1>
         <form action="<?php echo $_SERVER['PHP_SELF']?>" method='POST'>
         <input type="submit" style="display:none" value="Update Cart" id="updateCart" name="updateCart">
@@ -203,7 +202,7 @@
 			
     </div>
     </div>
-    <script src="javascript/cart.js"></script>
+    <script src="javascript/cart.js"></script><br>
 </body>
 </html>
 

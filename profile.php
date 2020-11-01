@@ -59,6 +59,7 @@ $row = $result -> fetch_assoc();
     <div class="profilerightColumn">
         
         <div class="profile">
+			<h2 style="text-align:center;">Profile</h2><br>
             <div><span>Username:</span>
                 <span><?php echo $_SESSION['valid_user']; ?>
             </div><br>
@@ -71,7 +72,7 @@ $row = $result -> fetch_assoc();
             <div><span>Postal Code:</span>
                 <span><input id="postalCodeInput" name="postalCodeInput" type="text" value="<?php echo $row['postal_code']; ?>" required>
                     
-            </div><br>
+            </div><br><br>
             <div class="editButton">
 
             <button id="submitButton" type="submit" value="Update" name="update" style="border: none; outline: 0; color: white; background-color: #000; cursor: pointer; width: 100px; height:30px; font-size: 18px;" >Update</button>
