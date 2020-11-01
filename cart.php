@@ -106,7 +106,7 @@
         if ($cartItemsQty == 0){
 
         ?>
-        <h2 style='text-align:center'>No items in cart! Help Mufasa out</h2>
+        <h2 style='text-align:center'>No items in cart! Help Mufasa out!</h2>
         
         <?php     
         }
@@ -138,14 +138,18 @@
             <figcaption><?php echo $productInfo['product_name']; ?></figcaption></figure></a>
             </td>
             <td>
+
             <button type="button" class='minusButton' name='minusButton' value='<?php echo $product_id; ?>' id='buttonMinus<?php echo $product_id?>' <?php if ($quantity == 1){ echo "disabled";} ?>>-</button>
             <input type='number' readonly id='<?php echo $product_id; ?>' class='product-qty-input qtyInput'  name='<?php echo $product_id; ?>' value='<?php echo $quantity; ?>' min='1' max="99" onchange="updatePrice(this.id)">
             <button class='plusButton' id='buttonPlus<?php echo $product_id ?>' name='plusButton' value='<?php echo $product_id; ?>'>+</button>
+
             <input type='hidden' id='input<?php echo $product_id; ?>' value="<?php echo $productInfo['price'] ?>">
             <input type='hidden' id='change<?php echo $product_id; ?>' name='focusInput[]'>
             <input type="hidden" id='stock<?php echo $product_id ?>' value='<?php echo $productInfo['stock']; ?>' >
             </td>
+
             <div><td class="itemTotalPrice" id='price<?php echo $product_id;?>' >$<?php echo $productInfo['price']*$quantity;?>	
+
             </td>
         </tr>
 			

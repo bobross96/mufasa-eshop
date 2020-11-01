@@ -104,8 +104,8 @@ if (isset($_POST['submit'])){
 </head>
 <body>
     <div style="text-align:center">
-    <h2 style="font-style:italic">Registration page</h2>
-    <img src="images/register.jpg" alt="register image">
+    <h2>Registration page</h2>
+    <img src="images/register.jpg" alt="register image" width="266px" height="200px">
 	<p>Already have an account? <a href="login.php">Sign in here.</a></p>
     <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
     Username: <br>

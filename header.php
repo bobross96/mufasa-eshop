@@ -38,6 +38,7 @@
 	</div>
 </div>
 
+
 <div class="bottom-header-container">
 	<div style="display:inline-block; width:90%">
 	<a href="member.php"><img style="padding: 0px 16px; vertical-align: middle" src="images/logo.png" alt="logo" width="11%" height="5%"></a>
@@ -49,6 +50,7 @@
 	<a href="cart.php" style="text-decoration: none; color: black; vertical-align: middle">
 	<span>
 	<img src="images/cart.svg" alt="carty" width="40px" height="40px" style="vertical-align: middle;">
+
 	<?php echo $cartItemsQty; ?>
 	</span></a>
 	

@@ -63,18 +63,19 @@ $row = $result -> fetch_assoc();
                 <span><?php echo $_SESSION['valid_user']; ?>
             </div><br>
             <div><span>Email:</span>
-                <span><input id="emailInput" name="emailInput" type="text" value="<?php echo $row['email']; ?>" readonly required>
+                <span><input id="emailInput" name="emailInput" type="text" value="<?php echo $row['email']; ?>" required>
             </div><br>
             <div><span>Address:</span>
-                <span><input id="addressInput" name="addressInput" type="text" value="<?php echo $row['address']; ?>" readonly required>
+                <span><input id="addressInput" name="addressInput" type="text" value="<?php echo $row['address']; ?>" required>
             </div><br>
             <div><span>Postal Code:</span>
-                <span><input id="postalCodeInput" name="postalCodeInput" type="text" value="<?php echo $row['postal_code']; ?>" readonly required>
+                <span><input id="postalCodeInput" name="postalCodeInput" type="text" value="<?php echo $row['postal_code']; ?>" required>
                     
             </div><br>
             <div class="editButton">
-            <button type='button' id="editAll">Edit</button><br><br>
-            <button id="submitButton" type="submit" value="Update" name="update" style="display:none" >Update</button>
+
+            <button id="submitButton" type="submit" value="Update" name="update" style="border: none; outline: 0; color: white; background-color: #000; cursor: pointer; width: 100px; height:30px; font-size: 18px;" >Update</button>
+
             </div>
         </div>
 	  </div>
