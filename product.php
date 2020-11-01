@@ -67,7 +67,7 @@
 		
 	
 	<div class="card">
-	  <div style=" width; width:350px">
+	  <div style="width:40%">
 	  <img src=images/productid<?php echo $row['id'] ?>.jpg style="width:100%">
 	  </div>
 	  <div style="max-width: 400px">
