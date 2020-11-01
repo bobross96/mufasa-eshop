@@ -33,12 +33,12 @@
     <link rel="stylesheet" href="css/checkout.css">
 </head>
 <body>
-<form action="mail.php" method="POST">
     <?php 
 
     include 'header.php';
     
     ?>
+<form action="mail.php" method="POST">
 <div class="container">    
             <div class="details-form" style="max-width:80%; text-align:center;">
                 <h1>Check Out</h1>            
