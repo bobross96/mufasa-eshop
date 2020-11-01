@@ -9,7 +9,8 @@ function validateAdd(address){
     var pos = address.search(/[^a-zA-Z\d\s\\#\-:]/)
     if (pos >= 0){
         alert(`Your address has invalid characters, please do not use special \n
-        characters in your address`)
+        characters in your
+		address`)
         confirmButton.disabled = true;
     }
     else {

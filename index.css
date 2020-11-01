@@ -131,9 +131,8 @@ nav ul {
   }
 
   .product-image {
-      width: 230px;
-      height: 230px;
-	  padding-bottom: 10px;
+      width: 220px;
+      height: 220px;
   }
 
   .product-desc {
@@ -180,22 +179,26 @@ nav ul {
   font-weight: bold;
 }
 
+.header{
+  position: sticky;
+  top: 0;
+}
+
 .top-header-container {
   color: grey;
-  margin-top: 1%;
+  background-color: whitesmoke;
+  padding-top: 8px;
   display: flex;
   min-width:900px; 
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 1%;
+  padding-bottom: 9px;
 }
 
 .bottom-header-container {
   border-style: none; 
   min-width:900px; 
-  background-color: whitesmoke;
-  
-  
+  background: rgba(255, 255, 255, 1);
 }
 
 .search-bar {
