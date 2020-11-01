@@ -111,8 +111,8 @@ if (isset($_POST['username'])){
     </h3>
     
     <div style="text-align:center">
-    <h2 style="font-style:italic">Login Page</h2>
-    <img src="images/logo.jpg" alt="logo">
+    <h2>Login Page</h2>
+    <img src="images/login.jpg" alt="login" width="300px" height="200px">
 	<p>Need an account? <a href="register.php">Register here.</a></p>
     <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
     Username: <br>

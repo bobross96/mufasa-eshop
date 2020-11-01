@@ -105,7 +105,7 @@
         if ($cartItemsQty == 0){
 
         ?>
-        <h2 style='text-align:center'>No items in cart! Help Mufasa out</h2>
+        <h2 style='text-align:center'>No items in cart! Help Mufasa out!</h2>
         
         <?php     
         }
