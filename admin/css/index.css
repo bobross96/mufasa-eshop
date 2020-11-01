@@ -1,0 +1,82 @@
+.container {
+    padding: 20px;
+    width: 80%;
+	min-width: 1000px;
+    margin: auto;
+}
+
+.order-container {
+    
+    border : 1px black solid; 
+    padding : 20px; 
+    margin-bottom:20px;
+    
+}
+
+.minusButton {
+    width: 20%;
+}
+
+.plusButton {
+    width: 20%;
+    text-align: center;
+}
+
+.stock-input {
+    width: 40%;
+    text-align: center;
+}
+
+.stock-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+nav ul {
+    list-style: none;
+    text-decoration: none;
+  }
+  
+  nav a {
+    text-decoration: none;
+  }
+  
+  nav {
+    float: left;
+  }
+
+
+
+  .listrightColumn {
+	margin-left: 15%;
+    padding: 10px 20px 50px 30px;
+    margin-bottom: 0px;
+    color: #31160c;
+    min-height: 500px;
+    font-size: 120%;
+	text-decoration: none;
+    
+}
+
+
+td {
+    min-width : 200px;
+    text-align: center;
+}
+
+
+
+figcaption {
+    text-align: center;
+}
+
+
+
+
+
+table, tr,td,th{
+    
+    border : 1px groove black;
+}
