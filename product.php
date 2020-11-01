@@ -22,11 +22,11 @@
 
 
 		if ($qtyInt > $row['stock']){
-			echo "<script>alert('Please order below the stock value');</script>";
+			echo "<script>alert('Selected quantity exceeds current stock level. Please try again.');</script>";
 		}
 
 		else if ($totalQtyInCart > $row['stock']){
-			echo "<script>alert('Total items in cart exceed stock value. Please check cart');</script>";
+			echo "<script>alert('Quantity in cart exceeds current stock level. Please check cart.');</script>";
 		}
 		else {
 	
@@ -38,7 +38,7 @@
 				$db->query($insert);
 			
 			}
-			echo "<script>alert('Item successfully added to cart')</script>";
+			echo "<script>alert('Item successfully added to cart.')</script>";
 		}
         
     }

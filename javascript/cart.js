@@ -64,7 +64,7 @@ function updatePrice(e) {
   //make sure stock is more than user value
   if (parseInt(input.value) > parseInt(stock.value)){
 
-    alert('Ordering more than available stock. Max Qty based on stock will be selected')
+    alert('Selected quantity exceeds current stock level. Quantity has been reset to current available stock.')
     input.value = stock.value
     updateCart.click()
   }

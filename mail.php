@@ -45,14 +45,15 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && $_POST['order'] == "Confirm Payment")
 
     
     
-    $message = "Greetings from Mufasa E Shop ".$_SESSION['valid_user']."\n";
-    $message .= "Your order is below:\n";
+    $message = "Greetings from Mufasa Electronics ".$_SESSION['valid_user']."\n";
+    $message .= "We have received your order and will ship it as soon as possible.\n";
+	$message .= "Below are your order details:\n";
 
     foreach ($_SESSION['cart'] as $product_id => $quantity) {
         $productQuery = "SELECT * FROM products WHERE id = $product_id";
         $output = $db -> query($productQuery);
         $productInfo = $output -> fetch_assoc();
-        $message .= "Product name: ".$productInfo['product_name']." Quantity: ".$quantity." Price:$ ".$quantity*$productInfo['price']."\n";
+        $message .= "\nProduct name: ".$productInfo['product_name']."\nQuantity: ".$quantity."\nSubtotal: $".$quantity*$productInfo['price']."\n";
         
         //insert into product orders table once order confirmed
         $insert_product_order = "INSERT INTO product_orders VALUES (NULL,$order_id,$product_id,$quantity)";
@@ -61,15 +62,15 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && $_POST['order'] == "Confirm Payment")
         $updateStock = "UPDATE products SET stock = stock - $quantity WHERE id = $product_id ";
         $db -> query($updateStock);
     }
-    $message .= "Total Price:$ ".$totalPrice."\n";
+    $message .= "\nTotal Price: $".$totalPrice."\n\n";
 
     //unset cart session
     unset($_SESSION['cart']);
 
     //send mail 
-    $message .= "Expected delivery date is: -fakedate-\n";
-    $message .= "Sending Items to: ".$address.", Postal Code:".$postalCode;
-    $message .= "\nThanks for shopping with Mufasa, please order again we have unlimited stock";
+    $message .= "Expected delivery date is: Launchdate of Half-Life 3\n";
+    $message .= "Items will be sent to: ".$address.", Singapore ".$postalCode;
+    $message .= "\nThanks for shopping with Mufasa, please order again before we go out of business.";
     
     $to = 'f37ee';
     $subject = 'Mufasa e shop order details';
@@ -77,7 +78,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && $_POST['order'] == "Confirm Payment")
 
     mail($to,$subject,$message,$headers);
 
-    echo "<script>alert('successfully ordered, an email as been sent to the user')</script>";
+    echo "<script>alert('Your order is successful, a confirmation email will be sent to you shortly.')</script>";
     echo "<script>location.href='order_history.php'</script>";
 
     

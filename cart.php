@@ -75,16 +75,17 @@
 	text-align: center;
 	} 
 	
-	input[type=number]::-webkit-inner-spin-button, 
-	input[type=number]::-webkit-outer-spin-button 
-	{  
-	opacity: 0;
-    }
-    
+	/* Chrome, Safari, Edge, Opera */
+	input::-webkit-outer-spin-button,
+	input::-webkit-inner-spin-button {
+	  -webkit-appearance: none;
+	  margin: 0;
+	}
 
-        input[type=number] {
-    -moz-appearance: textfield;
-    }
+	/* Firefox */
+	input[type=number] {
+	  -moz-appearance: textfield;
+	}
 	</style>
 </head>
 <body>
@@ -111,9 +112,7 @@
         else {
         ?>
 
-        <table><tr>
-        <th>Product</th><th>Quantity</th><th>Price</th>
-        </tr>
+        <table>
         <?php 
         
         $totalPrice = 0;
@@ -128,24 +127,28 @@
 
         ?>    
         <tr>
-            <td>
+            <td style="max-width: 50px;">
+			<button name='deleteButton' value='<?php echo $product_id ?>' style='border: none; outline: 0; color: dimgray; background-color:white; cursor: pointer; width: 30px; height:30px; font-size: 18px;' type='submit'>X</button>
+			</td>
+			<td>
             <a href="product.php?id=<?php echo $product_id; ?>">
             <figure>
-            <img src='images/productid<?php echo $product_id; ?>.jpg' alt='cart-image' width='100px' height='100px'>
+            <img src='images/productid<?php echo $product_id; ?>.jpg' alt='cart-image' width='120px' height='120px' style="padding-bottom:10px;">
             <figcaption><?php echo $productInfo['product_name']; ?></figcaption></figure></a>
             </td>
             <td>
-            <button style='vertical-align:top' type="button" class='minusButton' name='minusButton' value='<?php echo $product_id; ?>' id='buttonMinus<?php echo $product_id?>' <?php if ($quantity == 1){ echo "disabled";} ?>>-</button>&nbsp;
-            <input type='number' id='<?php echo $product_id; ?>' class='product-qty-input qtyInput'  name='<?php echo $product_id; ?>' value='<?php echo $quantity; ?>' min='1' onchange="updatePrice(this.id)">
-            &nbsp;<button style='vertical-align:top' class='plusButton' id='buttonPlus<?php echo $product_id ?>' name='plusButton' value='<?php echo $product_id; ?>'>+</button>&nbsp;
-            &nbsp;<button name='deleteButton' value='<?php echo $product_id ?>' style='vertical-align:top ; color:red' type='submit'>X</button>
+            <button style='vertical-align:top; border: none; outline: 0; color: white; background-color: #000; cursor: pointer; width: 30px; height:30px; font-size: 18px;' type="button" class='minusButton' name='minusButton' value='<?php echo $product_id; ?>' id='buttonMinus<?php echo $product_id?>' <?php if ($quantity == 1){ echo "disabled";} ?>>-</button>
+            <input type='number' readonly id='<?php echo $product_id; ?>' class='product-qty-input qtyInput'  name='<?php echo $product_id; ?>' value='<?php echo $quantity; ?>' min='1' max="99" onchange="updatePrice(this.id)">
+            <button style='border: none; outline: 0; color: white; background-color: #000; cursor: pointer; width: 30px; height:30px; font-size: 18px;' class='plusButton' id='buttonPlus<?php echo $product_id ?>' name='plusButton' value='<?php echo $product_id; ?>'>+</button>
             <input type='hidden' id='input<?php echo $product_id; ?>' value="<?php echo $productInfo['price'] ?>">
             <input type='hidden' id='change<?php echo $product_id; ?>' name='focusInput[]'>
             <input type="hidden" id='stock<?php echo $product_id ?>' value='<?php echo $productInfo['stock']; ?>' >
             </td>
-            <td id='price<?php echo $product_id;?>' >$<?php echo $productInfo['price']*$quantity;?>        
+            <div><td style="vertical-align:center; font-size:18px; min-width: 60px;" id='price<?php echo $product_id;?>' >$<?php echo $productInfo['price']*$quantity;?>	
             </td>
-            </tr>
+        </tr>
+			
+		
         <?php
         
         
@@ -153,23 +156,24 @@
 
         }
         ?>
-
-        
-        <tr><td colspan='2'>Total Price:</td>
-        <td id='totalPrice'>$<?php echo $totalPrice; ?></td>
-        </tr>
-        
+		</table>
+		<br><br><p style="text-align:center; font-size: 20px;">Cart Total:
+        <td id='totalPrice'>$<?php echo $totalPrice; ?>
+      
         <?php
         }
         ?>
 
-        </table>
+        
         </form><br><br>
-
-        <?php 
+		
+		
+		
+		
+		<?php 
         if ($cartItemsQty > 0){
             echo "<div style='text-align:center'>";
-            echo "<a href='checkout.php'><button>Check Out</button></a>";
+            echo "<a href='checkout.php'><button class='checkoutbutton'>Check Out</button></a>";
         };
 
         

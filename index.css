@@ -1,14 +1,14 @@
 .container {
     padding: 20px;
     width: 80%;
-	min-width: 1000px;
+	min-width: 900px;
     margin: auto;
 }
 
 
 .listrightColumn {
 	margin-left: 15%;
-    padding: 10px 20px 50px 30px;
+    padding: 10px 20px 20px 50px;
     margin-bottom: 0px;
     color: #31160c;
     min-height: 500px;
@@ -19,7 +19,7 @@
 
 .nextToListRightColumn {
   margin-left: 20%;
-    padding: 10px 20px 50px 30px;
+    padding: 10px 20px 20px 50px;
     margin-bottom: 0px;
     color: #31160c;
     min-height: 500px;
@@ -30,7 +30,7 @@
 .profilerightColumn {
 	margin-right: 20%;
 	margin-left: 10%;
-    padding: 20px 20px 50px 30px;
+    padding: 20px 20px 20px 50px;
     color: #31160c;
     min-height: 500px;
     font-size: 120%;
@@ -49,6 +49,26 @@
     
 }
 
+.checkoutbutton {
+    border: none;
+    outline: 0;
+    padding: 12px;
+    color: white;
+    background-color: #000;
+    text-align: center;
+    cursor: pointer;
+    width: 120px;
+    font-size: 18px;
+  }
+
+  .rightColumn button:hover {
+    opacity: 0.7;
+  }
+
+  .rightColumn button:disabled {
+      opacity : 0.4
+  }
+
 nav ul {
     list-style: none;
     text-decoration: none;
@@ -60,6 +80,7 @@ nav ul {
   
   nav {
     float: left;
+	color:dimgray;
   }
 
   .product {
@@ -144,5 +165,8 @@ nav ul {
 
 .sorting-header {
   display: flex;
-  justify-content: flex-end;
+  margin-top: 5px;
+  margin-bottom: 20px;
+  font-size: 83%;
+  color: dimgray;
 }
