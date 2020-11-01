@@ -73,7 +73,9 @@ $row = $result -> fetch_assoc();
                     
             </div><br>
             <div class="editButton">
+
             <button id="submitButton" type="submit" value="Update" name="update" style="border: none; outline: 0; color: white; background-color: #000; cursor: pointer; width: 100px; height:30px; font-size: 18px;" >Update</button>
+
             </div>
         </div>
 	  </div>

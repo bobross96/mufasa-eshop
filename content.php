@@ -13,12 +13,13 @@ if((isset($_GET['type'])) || (isset($_GET['brand']))){
                    
                 }
                 if ((isset($_GET['type'])) && (isset($_GET['brand']))){
-                    $query .= "AND";
+                    $query .= "AND ";
                 }
                 if (isset($_GET['brand'])){
                     $query .= "brand IN ('$brand') ";
                 }
                 $query .= "ORDER BY price ASC";
+                
                 $result = $db->query($query);
     $result = $db->query($query);
 
@@ -36,7 +37,7 @@ if((isset($_GET['type'])) || (isset($_GET['brand']))){
                    
                 }
                 if ((isset($_GET['type'])) && (isset($_GET['brand']))){
-                    $query .= "AND";
+                    $query .= "AND ";
                 }
                 if (isset($_GET['brand'])){
                     $query .= "brand IN ('$brand') ";
@@ -55,7 +56,7 @@ if((isset($_GET['type'])) || (isset($_GET['brand']))){
                    
                 }
                 if ((isset($_GET['type'])) && (isset($_GET['brand']))){
-                    $query .= "AND";
+                    $query .= "AND ";
                 }
                 if (isset($_GET['brand'])){
                     $query .= "brand IN ('$brand') ";

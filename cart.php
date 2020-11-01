@@ -68,6 +68,7 @@
     <title>Cart</title>
     <link rel="stylesheet" href="index.css">
     <link rel="stylesheet" href="css/order.css">
+    <link rel="stylesheet" href="css/cart.css">
    
 	<style>
 	
@@ -137,14 +138,18 @@
             <figcaption><?php echo $productInfo['product_name']; ?></figcaption></figure></a>
             </td>
             <td>
-            <button style='vertical-align:top; border: none; outline: 0; color: white; background-color: #000; cursor: pointer; width: 30px; height:30px; font-size: 18px;' type="button" class='minusButton' name='minusButton' value='<?php echo $product_id; ?>' id='buttonMinus<?php echo $product_id?>' <?php if ($quantity == 1){ echo "disabled";} ?>>-</button>
+
+            <button type="button" class='minusButton' name='minusButton' value='<?php echo $product_id; ?>' id='buttonMinus<?php echo $product_id?>' <?php if ($quantity == 1){ echo "disabled";} ?>>-</button>
             <input type='number' readonly id='<?php echo $product_id; ?>' class='product-qty-input qtyInput'  name='<?php echo $product_id; ?>' value='<?php echo $quantity; ?>' min='1' max="99" onchange="updatePrice(this.id)">
-            <button style='border: none; outline: 0; color: white; background-color: #000; cursor: pointer; width: 30px; height:30px; font-size: 18px;' class='plusButton' id='buttonPlus<?php echo $product_id ?>' name='plusButton' value='<?php echo $product_id; ?>'>+</button>
+            <button class='plusButton' id='buttonPlus<?php echo $product_id ?>' name='plusButton' value='<?php echo $product_id; ?>'>+</button>
+
             <input type='hidden' id='input<?php echo $product_id; ?>' value="<?php echo $productInfo['price'] ?>">
             <input type='hidden' id='change<?php echo $product_id; ?>' name='focusInput[]'>
             <input type="hidden" id='stock<?php echo $product_id ?>' value='<?php echo $productInfo['stock']; ?>' >
             </td>
-            <div><td style="vertical-align:center; font-size:18px; min-width: 60px;" id='price<?php echo $product_id;?>' >$<?php echo $productInfo['price']*$quantity;?>	
+
+            <div><td class="itemTotalPrice" id='price<?php echo $product_id;?>' >$<?php echo $productInfo['price']*$quantity;?>	
+
             </td>
         </tr>
 			

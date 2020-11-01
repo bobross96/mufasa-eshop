@@ -45,6 +45,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && $_POST['order'] == "Confirm Payment")
 
     
     
+
     $message = "Greetings from Mufasa Electronics ".$_SESSION['valid_user'].".\n";
     $message .= "We have received your order and will ship it as soon as possible.\n";
 	$message .= "Below are your order details:\n";
@@ -68,6 +69,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && $_POST['order'] == "Confirm Payment")
     unset($_SESSION['cart']);
 
     //send mail 
+
     $message .= "Expected delivery date is: Whenever Cyberpunk 2077 launches\n";
     $message .= "Items will be sent to: ".$address.", Singapore ".$postalCode;
     $message .= "\nThanks for shopping with Mufasa, please order again before we go out of business.";
