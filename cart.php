@@ -19,18 +19,6 @@
             
         }
          
-        //this is to focus on the element that changed
-        if (isset($_POST['focusInput'])){
-            foreach ($_POST['focusInput'] as $value) {
-                if ($value != 0){
-                    $currentidINT = $value;
-                break;
-                }
-            }
-            
-        }
-
-       
         foreach ($_POST as $key => $value) {
                 if (array_key_exists($key,$_SESSION['cart'])){
                     $_SESSION['cart'][$key] = (int)$value;
@@ -96,6 +84,7 @@
     include 'header.php';
    
     ?>
+    
         <h1 style="text-align:center">Cart</h1>
         <form action="<?php echo $_SERVER['PHP_SELF']?>" method='POST'>
         <input type="submit" style="display:none" value="Update Cart" id="updateCart" name="updateCart">

@@ -22,6 +22,19 @@ plusButton.forEach((button) => {
 });
 
 
+qtyInput.forEach((input) => {
+    input.addEventListener("change",submitQty,false)
+})
+
+function submitQty(e){
+    let id = e.target.id
+    let updateForm = document.getElementById("updateForm" + id)
+    let hiddenInput = document.getElementById("id"+id)
+    hiddenInput.value = id  
+    updateForm.submit()
+}
+
+
 
 function minusQty(e) {
 

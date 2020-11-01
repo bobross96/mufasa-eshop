@@ -1,7 +1,7 @@
 <?php 
-    include 'dbconnect.php';
+	include 'dbconnect.php';
+	session_start();
     //this starts session and loads the session login thingy from login
-    include 'sessionPolice.php';
 	//get the query param, then select from database info about that product
     
     $product_id = $_GET['id'];
@@ -13,6 +13,10 @@
 
 	
     if(isset($_POST['quantity']) && $_POST['quantity'] > 0){
+		if (!isset($_SESSION['valid_user'])){
+			echo "<script>window.location.href='login.php'</script>";
+		}
+
         #code to insert item into cart
         //need to convert these values to int to insert into cart db table 
         $qtyINT = (int)$_POST['quantity'];
@@ -84,6 +88,11 @@
 	
 	
      </div>
-    </div>
+	</div>
+	<?php 
+
+        include 'recommendation.php';
+        
+        ?>
 </body>
 </html>

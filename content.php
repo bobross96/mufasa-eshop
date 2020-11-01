@@ -1,7 +1,35 @@
 <?php
 include "dbconnect.php";
 
-if((isset($_GET['type'])) || (isset($_GET['brand']))){
+if (isset($_GET['search'])){
+    $string = $_GET['search'];
+    $noSpaceString = str_replace(' ', '', $string);
+    $stringToSearch = "%".substr($noSpaceString,0,3)."%";
+    $searchQuery = "SELECT * FROM products WHERE product_name LIKE '$stringToSearch' OR brand LIKE '$stringToSearch' OR category LIKE '$stringToSearch' ";
+    $searchResult = $db->query($searchQuery);
+    $result = array();
+        foreach ($searchResult as $key => $value) {
+            $result[$value['id']] = $value['price']; 
+        }
+    if (isset($_POST['sortType'])){
+        switch ($_POST['sortType']) {
+            case 'highToLow':
+                $sortBy = 'highToLow';
+                arsort($result);
+                break;
+            case 'lowToHigh':
+                $sortBy = 'lowToHigh';
+                asort($result);
+                break;
+            default;
+                break;
+        }
+    }
+
+
+   
+}
+else if((isset($_GET['type'])) || (isset($_GET['brand']))){
     $category = $_GET['type'];
     $brand = $_GET['brand'];
     //no sorting, will query as per normal
@@ -20,80 +48,60 @@ if((isset($_GET['type'])) || (isset($_GET['brand']))){
                 }
                 $query .= "ORDER BY price ASC";
                 
-                $result = $db->query($query);
-    $result = $db->query($query);
-
-    //got sorting, will override the result from above
-    if (isset($_POST['sortType'])){
-
-        switch ($_POST['sortType']) {
-            case 'highToLow':
-                $sortBy = 'highToLow';
-                $query = "SELECT * FROM products WHERE ";
-                
-                if (isset($_GET['type'])){
-                   
-                    $query .= "category IN ('$category') ";
-                   
+                $catResult = $db->query($query);
+                $result = array();
+                foreach ($catResult as $key => $value) {
+                    $result[$value['id']] = $value['price']; 
                 }
-                if ((isset($_GET['type'])) && (isset($_GET['brand']))){
-                    $query .= "AND ";
+                //got sorting, will override the result from above
+                if (isset($_POST['sortType'])){
+                    switch ($_POST['sortType']) {
+                        case 'highToLow':
+                            $sortBy = 'highToLow';
+                            arsort($result);
+                            break;
+                        case 'lowToHigh':
+                            $sortBy = 'lowToHigh';
+                            asort($result);
+                            break;
+                        default;
+                            break;
+                    }
                 }
-                if (isset($_GET['brand'])){
-                    $query .= "brand IN ('$brand') ";
-                }
-                $query .= "ORDER BY price DESC";
-
-                $result = $db->query($query);
-                break;
-            case 'lowToHigh':
-                $sortBy = 'lowToHigh';
-                $query = "SELECT * FROM products WHERE ";
-                
-                if (isset($_GET['type'])){
-                   
-                    $query .= "category IN ('$category') ";
-                   
-                }
-                if ((isset($_GET['type'])) && (isset($_GET['brand']))){
-                    $query .= "AND ";
-                }
-                if (isset($_GET['brand'])){
-                    $query .= "brand IN ('$brand') ";
-                }
-                $query .= "ORDER BY price ASC";
-                $result = $db->query($query);
-                break;
-            default:
-
-                break;
-        }
+            
     }
-}
 
 
 
 else {
     
     $query = "SELECT * FROM products ";
-    $result = $db->query($query);
+    $catResult = $db->query($query);
 
     
     if (isset($_POST['sortType'])){
+        $result = array();
+        foreach ($catResult as $key => $value) {
+            $result[$value['id']] = $value['price']; 
+        }
         switch ($_POST['sortType']) {
             case 'highToLow':
                 $sortBy = 'highToLow';
-                $query = "SELECT * FROM products ORDER BY price DESC";
-                $result = $db->query($query);
+                arsort($result);
                 break;
             case 'lowToHigh':
                 $sortBy = 'lowToHigh';
-                $query = "SELECT * FROM products ORDER BY price ASC";
-                $result = $db->query($query);
+                asort($result);
                 break;
-            default:
+            default;
+                break;
+        }
+    }
 
-                break;
+    else {
+        $result = array();
+        foreach ($catResult as $key => $value) {
+            $result[$value['id']] = $value['price']; 
         }
     }
     
@@ -115,19 +123,35 @@ else {
                 <option  value="highToLow" <?php if ($sortBy == 'highToLow') {echo 'selected';} ?>>Price high to low</option>
             </select>
             </form>
+            <br>
+            <?php
+            foreach ($_GET as $key => $value) {
+            ?>
+                <span style="border:1px black solid;padding : 10px;border-radius: 10px;"><?php echo $value; ?></span>
+            <?php
+            }
+            ?>
+
         </div>
     
 
     </div>
     <?php
+
     
-    foreach ($result as $value) {
+
+    foreach ($result as $key => $value) {
+        
+        $productQuery = "SELECT * FROM products WHERE id = $key ";
+        $productAll = $db->query($productQuery);
+        $productInfo = $productAll -> fetch_assoc();
+        
 
         echo "<div class='product'>";
-        echo "<a href='product.php?id=".$value['id']."'>";
-        echo "<img class='product-image' src='images/productid".$value['id'].".jpg' alt=''>";
-        echo "<span class='product-desc' style='color: black; font-weight: bold'>".$value['product_name']."</span><br>";
-        echo "$","<class='product-price'>".$value['price']."<br>";
+        echo "<a href='product.php?id=".$productInfo['id']."'>";
+        echo "<img class='product-image' src='images/productid".$productInfo['id'].".jpg' alt=''>";
+        echo "<span class='product-desc' style='color: black; font-weight: bold'>".$productInfo['product_name']."</span><br>";
+        echo "$","<class='product-price'>".$productInfo['price']."<br>";
         echo "</div>";
     }
 
