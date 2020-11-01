@@ -23,8 +23,7 @@ if (isset($_POST['username'])){
 
         echo $row["id"];
         echo $_SESSION["user_id"];
-        echo "<script>alert('Successfully logged in ".$username."')</script>";
-        echo "<script>window.location.href='member.php'</script>";
+        echo "<script>window.location.href='index.php'</script>";
         
     }
 

@@ -53,21 +53,14 @@ $result = $db->query($productQuery);
     <div>
         <nav>
         <ul><a href="admin-stock.php">Manage Stock</a></ul>
-        <ul><a href="admin-orders.php">Manage Order Status</a></ul>
+        <ul><a href="admin-orders.php">Manage Orders</a></ul>
         </nav>
 
     </div>
     <div class="listrightColumn">
-        <h2>Stock</h2>
+        <h2 style="text-align:center">Stock</h2>
         
         <table style="margin:auto">
-            <tr>
-                <th>Product</th>
-                <th>Stock</th>
-            </tr>
-
-
-
         
         <?php
 
@@ -75,7 +68,7 @@ $result = $db->query($productQuery);
         ?>
         <form id="updateForm<?php echo $value['id']; ?>" action="<?php echo $_SERVER['SELF']?>" method="POST">    
             <tr>
-                <td>
+                <td style="max-width:50px;">
                 <figure>
                     <img src='../images/productid<?php echo $value['id']; ?>.jpg' alt='cart-image' width='100px' height='100px'>
                     <figcaption>
@@ -84,12 +77,12 @@ $result = $db->query($productQuery);
                 </figure>
                 </td>
                 <td>
-                    <div class="stock-container">
+                    
                         <button class="minusButton" id="minusButton<?php echo $value['id']; ?>">-</button>
-                        <input name="stock-input" class="stock-input" id='<?php echo $value['id']; ?>' type="number"  value='<?php echo $value['stock'] ?>' min='0' onchange="this.form.submit()">
+                        <input name="stock-input" class="stock-input" id='<?php echo $value['id']; ?>' type="number"  value='<?php echo $value['stock'] ?>' min='0'>
                         <button class="plusButton" id="plusButton<?php echo $value['id']; ?>">+</button>
                         <input type="hidden" name="stockChanged" id="id<?php echo$value['id']; ?>">
-                    </div>
+                    
                 </td>
             </tr>
         </form>

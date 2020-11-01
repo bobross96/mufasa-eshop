@@ -27,10 +27,22 @@ if (isset($_POST['submit'])){
     	}
 
     	else {
-		// if need can just redirect to the start page later
-        echo "<script>alert('Successfully registered ".$username."')</script>";
-        echo "<script>location.href='member.php'</script>";
-        //redirect to member page
+
+			$sql = "SELECT * from users WHERE username='$username' and password='$password'";
+
+			$result = $db -> query($sql);
+			$row = $result -> fetch_assoc();
+
+			session_start();
+			$_SESSION['user_id'] = $row['id'];
+			$_SESSION['valid_user'] = $username;
+			$_SESSION['cart'] = array();
+
+			
+			// if need can just redirect to the start page later
+			echo "<script>alert('Successfully registered ".$username."')</script>";
+			echo "<script>location.href='index.php'</script>";
+			//redirect to member page
     	}
 	}
 

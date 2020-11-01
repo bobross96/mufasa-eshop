@@ -49,7 +49,7 @@
     <div>
         <nav>
         <ul><a href="admin-stock.php">Manage Stock</a></ul>
-        <ul><a href="admin-orders.php">Manage Order Status</a></ul>
+        <ul><a href="admin-orders.php">Manage Orders</a></ul>
         </nav>
 
     </div>
