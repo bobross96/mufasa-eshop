@@ -1,8 +1,3 @@
-<?php if ($_SESSION['valid_user'];){
-
-?>
-
-
 <div class="container" style="text-align:center; min-width:85%">
 		<?php
 		
@@ -36,22 +31,4 @@
 				}
 
 				
-		
-
-
-
-
-
-}
-
-
-else {
-
-}
-
-?>
-
-
-
-
-
+		?>
