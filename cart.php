@@ -136,7 +136,7 @@
             <input type="hidden" id='stock<?php echo $product_id ?>' value='<?php echo $productInfo['stock']; ?>' >
             </td>
 
-            <div><td class="itemTotalPrice" id='price<?php echo $product_id;?>' >$<?php echo $productInfo['price']*$quantity;?>	
+            <div><td class="itemTotalPrice" style="min-width: 100px;" id='price<?php echo $product_id;?>' >$<?php echo $productInfo['price']*$quantity;?>	
 
             </td>
         </tr>

@@ -60,8 +60,8 @@
 		<button type="submit" style="padding: 16px 16px; vertical-align: middle"><i class="fa fa-search"></i></button>
 		<a href="cart.php" style="text-decoration: none; color: black; vertical-align: middle">
 		<span style="padding: 16px 16px;min-width:40%; margin-left: 2%; margin-right: 2%; font-size: 20px; vertical-align: middle">
-		<img src="images/cart.svg" alt="carty" width="40px" height="40px" style="vertical-align: middle; text-align: right">
-		<?php echo $cartItemsQty; ?>
+		<img src="images/cart.svg" alt="carty" width="40px" height="40px" style="vertical-align: middle; position: relative;">
+		<span style="position:absolute; margin-top:40px; margin-left:3px;"><?php echo $cartItemsQty; ?></span>
 		</span></a>
 		</div>
 
