@@ -88,7 +88,7 @@
                         </figcaption>
                         </figure>
                     </td>
-                    <td>Price:$ <?php echo $row['price']*$value['quantity']; ?> </td>
+                    <td>Price:$ <?php echo $value['current_price']*$value['quantity']; ?> </td>
                     </tr>
                     <tr>
                     <td>Quantity:<?php echo $value['quantity']; ?></td>

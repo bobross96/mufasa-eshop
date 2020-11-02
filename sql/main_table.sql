@@ -15,27 +15,23 @@ create table mufasa_orders (
     user_id int unsigned not null references users(id),
     order_date DATETIME,
     total_amount float(9,2),
-    order_status varchar(255)
+    order_status varchar(255),
+    delivery_date DATETIME
 );
 
 create table product_orders(
     id int unsigned not null auto_increment primary key,
     order_id int unsigned not null references mufasa_orders(id),
     product_id int unsigned not null references products(id),
-    quantity int unsigned not null 
-
-);
-
-create table cart_product(
-    id int unsigned not null auto_increment primary key,
     quantity int unsigned not null,
-    product_id int unsigned not null references products(id),
-    user_id int unsigned not null references users(id)
+    current_price float(9,2)
+
 );
 
 
 create table reviews(
     id int unsigned not null auto_increment primary key,
-    user_id int unsiged not null references users(id),
+    user_id int unsigned not null references users(id),
+    product_id int unsigned not null references products(id)
     
-)
+);

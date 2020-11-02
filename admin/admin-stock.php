@@ -6,11 +6,22 @@ include 'sessionPolice.php';
 
 
 if ($_SERVER["REQUEST_METHOD"] == "POST"){
-    $newStock_INT = (int)$_POST['stock-input'];
-    $id_INT = (int)$_POST['stockChanged'];
 
-    $updateStockQuery = "UPDATE products SET stock = $newStock_INT WHERE id = $id_INT";
-    $db -> query($updateStockQuery);
+    if(isset($_POST['stock-input'])){
+        $newStock_INT = (int)$_POST['stock-input'];
+        $id_INT = (int)$_POST['stockChanged'];
+
+        $updateStockQuery = "UPDATE products SET stock = $newStock_INT WHERE id = $id_INT";
+        $db -> query($updateStockQuery);    
+    }
+
+    if(isset($_POST['price'])){
+        $newPrice_INT = (int)$_POST['price'];
+        $id_INT = (int)$_POST['stockChanged'];
+
+        $updatePriceQuery = "UPDATE products SET price = $newPrice_INT WHERE id = $id_INT";
+        $db -> query($updatePriceQuery);
+    }
 
 }
 
@@ -42,7 +53,7 @@ $result = $db->query($productQuery);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stock</title>
+    <title>Products</title>
     <link rel="stylesheet" href="css/header.css">
     <link rel="stylesheet" href="css/index.css">
 </head>
@@ -61,6 +72,11 @@ $result = $db->query($productQuery);
         <h2 style="text-align:center">Stock</h2>
         
         <table style="margin:auto">
+        <tr>
+            <td>Product</td>
+            <td>Stock</td>
+            <td>Price</td>
+        </tr>
         
         <?php
 
@@ -83,6 +99,10 @@ $result = $db->query($productQuery);
                         <button class="plusButton" id="plusButton<?php echo $value['id']; ?>">+</button>
                         <input type="hidden" name="stockChanged" id="id<?php echo$value['id']; ?>">
                     
+                </td>
+                <td>
+                    $ <input type="number" name="price" id="price<?php echo $value['id']; ?>" class="price-input" value='<?php echo $value['price'] ?>' > 
+
                 </td>
             </tr>
         </form>

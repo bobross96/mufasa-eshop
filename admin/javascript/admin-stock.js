@@ -1,4 +1,5 @@
 let qtyInput = document.querySelectorAll(".stock-input");
+let priceInput = document.querySelectorAll(".price-input");
 
 let minusButton = document.querySelectorAll(".minusButton");
 let plusButton = document.querySelectorAll(".plusButton");
@@ -21,10 +22,30 @@ plusButton.forEach((button) => {
     button.addEventListener("click", plusQty, false);
 });
 
+priceInput.forEach((input) => {
+  input.addEventListener("change",submitPrice,false)
+})
+
+
 
 qtyInput.forEach((input) => {
     input.addEventListener("change",submitQty,false)
 })
+
+function submitPrice(e){
+    let id = e.target.id.slice(5)
+    let updateForm = document.getElementById("updateForm" + id)
+    let hiddenInput = document.getElementById("id"+id)
+    hiddenInput.value = id
+    if (e.target.value < 0){
+      alert('price cannot be negative')
+    }
+
+    else {
+      updateForm.submit()
+    }
+}
+
 
 function submitQty(e){
     let id = e.target.id

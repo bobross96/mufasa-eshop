@@ -38,7 +38,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && $_POST['order'] == "Confirm Payment")
     }
     
     //create new order in mufasa orders
-    $insert_order = "INSERT INTO mufasa_orders VALUES (NULL,$user_idINT,CURRENT_TIMESTAMP,$totalPrice,'Created') ";
+    $date = date("Y-m-d H:i:s");// current date
+    $deliveryDate = date('Y-m-d H:i:s',strtotime(date("Y-m-d H:i:s", strtotime($date)) . " +1 week"));
+
+    $insert_order = "INSERT INTO mufasa_orders VALUES (NULL,$user_idINT,'$date',$totalPrice,'Created','$deliveryDate')";
+    echo $insert_order;
     $db->query($insert_order);
     //returns id of recently inserted row
     $order_id = $db->insert_id;
@@ -57,7 +61,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && $_POST['order'] == "Confirm Payment")
         $message .= "\nProduct name: ".$productInfo['product_name']."\nQuantity: ".$quantity."\nSubtotal: $".$quantity*$productInfo['price']."\n";
         
         //insert into product orders table once order confirmed
-        $insert_product_order = "INSERT INTO product_orders VALUES (NULL,$order_id,$product_id,$quantity)";
+        $current_price = $productInfo['price'];
+        $insert_product_order = "INSERT INTO product_orders VALUES (NULL,$order_id,$product_id,$quantity,$current_price)";
         $db->query($insert_product_order);
         //reduce stock for the item lol
         $updateStock = "UPDATE products SET stock = stock - $quantity WHERE id = $product_id ";
@@ -70,7 +75,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && $_POST['order'] == "Confirm Payment")
 
     //send mail 
 
-    $message .= "Expected delivery date is: Whenever Cyberpunk 2077 launches\n";
+    $message .= "Expected delivery date is: ".substr($deliveryDate,0,10)."\n";
     $message .= "Items will be sent to: ".$address.", Singapore ".$postalCode;
     $message .= "\nThanks for shopping with Mufasa, please order again before we go out of business.";
     

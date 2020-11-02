@@ -120,7 +120,7 @@
         ?>
         </h2>
         <div class="landing-page">
-            <img src="../images/logo.png" width="30%" alt="mufasa gif here">
+            <img src="../images/logo.png" width="200vx" height="150vh" alt="mufasa gif here">
         </div>
         <div style="text-align:center">
             <h2 style="font-style:italic">Login Page</h2>

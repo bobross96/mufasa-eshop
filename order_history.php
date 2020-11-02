@@ -45,6 +45,8 @@ include 'dbconnect.php';
                 <p>Order ID:<?php echo $orderInfo['id'] ?></p>
 				<div style="display:inline-block ; vertical-align:top;">
                 Order Status: <?php echo $orderInfo['order_status']; ?>
+                <br><br>
+                Expected Delivery Date: <?php echo substr($orderInfo['delivery_date'],0,10 );?>
 				</div><br><br>
                 <div style="display:inline-block; vertical-align:top">
                 <table>
@@ -71,7 +73,7 @@ include 'dbconnect.php';
                     </td>
 
                     <td><?php echo $value['quantity']; ?></td>
-					<td>$<?php echo $row['price']*$value['quantity']; ?> </td>
+					<td>$<?php echo $value['current_price']*$value['quantity']; ?> </td>
 
                     </tr>
 
