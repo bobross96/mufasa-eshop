@@ -89,10 +89,5 @@
 	
      </div>
 	</div>
-	<?php 
-
-        include 'recommendation.php';
-        
-        ?>
 </body>
 </html>

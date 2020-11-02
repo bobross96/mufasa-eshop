@@ -49,7 +49,7 @@ if (isset($_POST['username'])){
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="index.css">
-    <title>Login</title>
+    <title>User Account - Mufasa</title>
 	<style>
 			* {box-sizing: border-box}
 
@@ -110,7 +110,7 @@ if (isset($_POST['username'])){
     </h3>
     
     <div style="text-align:center">
-    <h2>Login Page</h2>
+    <h2>Login to your Mufasa account</h2>
     <img src="images/login.jpg" alt="login" width="300px" height="200px">
 	<p>Need an account? <a href="register.php">Register here.</a></p>
     <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">

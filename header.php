@@ -34,8 +34,7 @@
 		 </a>	
 		</div>
 		<div style="padding-right: 13%">
-			<a href="profile.php" style="text-decoration: none; color: black;">Welcome <?php echo $username; ?>
-			<a href="profile.php"><span style="padding-left:1em"><img src="images/profile.svg" alt="bye" width="20em" height="20em" style="vertical-align: middle; text-align: right; margin-right: 2px">Profile</span>
+			<a href="profile.php"><span style="padding-left:1em;"><img src="images/user.svg" alt="bye" width="20em" height="18em" style="vertical-align: middle; text-align: right; margin-right: 4px">Hello <?php echo $username; ?></span>
 			<a href="order_history.php"><span style="padding-left:1em"><img src="images/orderHistory.svg" alt="bye" width="20em" height="20em" style="vertical-align: middle; text-align: right; margin-right: 2px">Order History</span>
 			<?php if (isset($_SESSION['valid_user'])){
 				?>

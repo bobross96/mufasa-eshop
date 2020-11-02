@@ -131,8 +131,9 @@ nav ul {
   }
 
   .product-image {
-      width: 220px;
-      height: 220px;
+      width: 210px;
+      height: 210px;
+	  margin-bottom: 8px;
   }
 
   .product-desc {
@@ -168,7 +169,7 @@ nav ul {
 .sorting-header {
   display: flex;
   margin-top: 5px;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
   font-size: 83%;
   color: dimgray;
 
@@ -209,4 +210,11 @@ nav ul {
   padding: 16px 16px; 
   vertical-align: middle
 
+}
+
+.searchValue {
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none; /* IE 10 and IE 11 */
+  user-select: none; /* Standard syntax */
+	
 }

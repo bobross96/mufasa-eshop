@@ -114,7 +114,7 @@ else {
     <!--  sorting bar above products   -->
     <div class="sorting-header" >
         <div>
-            <!-- request uri retains the query parameter -->
+            <!-- request url retains the query parameter -->
             <form action="<?php echo $_SERVER['REQUEST_URI']?>" method="POST">
             <label for="sortOption">Sort By:</label>
             <select name="sortType" id="sortOption" onchange="this.form.submit()">
@@ -124,13 +124,15 @@ else {
             </select>
             </form>
             <br>
+			<div class="searchValue">
             <?php
             foreach ($_GET as $key => $value) {
             ?>
-                <span style="border:1px black solid;padding : 10px;border-radius: 10px;"><?php echo $value; ?></span>
+                <span style="border:1px dimgray solid; padding : 10px;border-radius: 10px;"><?php echo $value; ?></span>
             <?php
             }
             ?>
+			</div>
 
         </div>
     
