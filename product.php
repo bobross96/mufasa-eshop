@@ -19,17 +19,18 @@
 
         #code to insert item into cart
         //need to convert these values to int to insert into cart db table 
-        $qtyINT = (int)$_POST['quantity'];
+		
+		$qtyINT = (int)$_POST['quantity'];
         $product_idINT = (int)$product_id;
 		$useridINT = (int)$_SESSION['user_id'];
 		$totalQtyInCart = $_SESSION['cart'][$product_idINT] + $qtyINT;  
+		$stock_INT = (int)$row['stock'];
 
-
-		if ($qtyInt > $row['stock']){
-			echo "<script>alert('Selected quantity exceeds current stock level. Please try again.');</script>";
+		if ($qtyInt > $stock_INT){
+			echo "<script>alert('Selected quantity exceeds currenasdasdt stock level. Please try again.');</script>";
 		}
 
-		else if ($totalQtyInCart > $row['stock']){
+		else if ($totalQtyInCart > $stock_INT){
 			echo "<script>alert('Quantity in cart exceeds current stock level. Please check cart.');</script>";
 		}
 		else {
