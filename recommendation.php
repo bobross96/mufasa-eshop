@@ -15,21 +15,12 @@
 		echo "<br><br><p style='text-align:center'>Based on the items in your cart, you may also like<br><br>";
 		include "dbconnect.php";
 
-		if(isset($_GET['type'])){
-			$category = $_GET['type'];
-			$query = "SELECT * FROM products WHERE category =\"$category\" LIMIT 4";
-			$result = $db->query($query);
-			if (!$result){
-				echo("Error description: " .$db->error. "<br>");
-			}
-		}
-
-		else {
-		$query = "SELECT * FROM products LIMIT 4";
+		$id = $productInfo['id'];
+		$category = $productInfo['category'];
+		$query = "SELECT * FROM products WHERE category =\"$category\"  LIMIT 4";
 		$result = $db->query($query);
 		#var_dump($result);
 
-		}
 		};
 		
 			echo "<div'. $class .'>";

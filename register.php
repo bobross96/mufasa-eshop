@@ -62,7 +62,7 @@ if (isset($_POST['submit'])){
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="index.css">
-    <title>Register</title>
+    <title>User Account - Mufasa</title>
 	<style>
 			* {box-sizing: border-box}
 
@@ -116,7 +116,7 @@ if (isset($_POST['submit'])){
 </head>
 <body>
     <div style="text-align:center">
-    <h2>Registration page</h2>
+    <h2>Create a Mufasa Profile</h2>
     <img src="images/register.jpg" alt="register image" width="266px" height="200px">
 	<p>Already have an account? <a href="login.php">Sign in here.</a></p>
     <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
