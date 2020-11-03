@@ -27,7 +27,7 @@
 		$stock_INT = (int)$row['stock'];
 
 		if ($qtyInt > $stock_INT){
-			echo "<script>alert('Selected quantity exceeds currenasdasdt stock level. Please try again.');</script>";
+			echo "<script>alert('Selected quantity exceeds current stock level. Please try again.');</script>";
 		}
 
 		else if ($totalQtyInCart > $stock_INT){
@@ -87,8 +87,17 @@
 	  </div>
 	</div>
 	
+	<?php
 	
-     </div>
+	//Recommendations = Suggest product from the same category? Limit items shown to 4.
+	include 'recommendation-product.php';
+	
+	
+
+			
+	?>
+	
+    </div>
 	</div>
 </body>
 </html>

@@ -5,13 +5,11 @@
     
     //var_dump($_SESSION['cart']);
     $user_idINT = (int)$_SESSION['user_id'];
+    
+    // join query using where instead
     /* $query = "SELECT c.id,c.product_id,c.quantity,p.product_name,p.price FROM cart_product c,products p WHERE c.user_id = $user_idINT AND c.product_id = p.id"; 
     
-    $result = $db->query($query);
-    $totalPrice = 0;
-    foreach ($result as $value) {
-        $totalPrice += $value['quantity']*$value['price'];
-    } */
+     */
     if($_SERVER["REQUEST_METHOD"] == "POST"){
         if ($_POST['deleteButton'] != 0){
             $deleteidINT = (int)$_POST['deleteButton'];

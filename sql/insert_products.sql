@@ -8,4 +8,6 @@ INSERT INTO products VALUES
 (5, 'Thinkpad T470',1600,'Laptop','Lenovo','Learn more about the ThinkPad T470, a 14 inch thin, light, and powerful business laptop with 18 hours long battery life that can boost productivity anywhere.',5),
 (6, 'MacBook',1899,'Laptop','Apple','Made by Ling Ping and her comrades.',5),
 (7, 'Airpods',199,'Audio Accessory','Apple','Comes in XXL.',5),
-(8,'PS5',699,'Gaming Device','Sony','Plash Speed 5 latest router, perfect for Candy Crush.',5);
+(8,'PS5',699,'Gaming Device','Sony','Plash Speed 5 latest router, perfect for Candy Crush.',5),
+(9,'Sony WF 1000XM3',299,'Audio Accessory','Sony','High performance wireless earbuds. MKBHD approved',5),
+(10,'AMD Radeon RX 5600 XT',1000,'GPU','AMD','Looks cool, might be able to play a few games. Buy it',5);

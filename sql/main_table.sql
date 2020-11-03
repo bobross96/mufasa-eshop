@@ -29,9 +29,3 @@ create table product_orders(
 );
 
 
-create table reviews(
-    id int unsigned not null auto_increment primary key,
-    user_id int unsigned not null references users(id),
-    product_id int unsigned not null references products(id)
-    
-);
