@@ -36,14 +36,8 @@
 		else {
 	
 			$_SESSION['cart'][$product_idINT] += $qtyINT;
-			if(($db->affected_rows) == 0){
-
-				$insert = "INSERT INTO cart_product VALUES (NULL,$qtyINT,$product_idINT,$useridINT)";
-
-				$db->query($insert);
+			echo "<script>alert('Item successfully added to the cart');</script>";
 			
-			}
-			echo "<script>alert('Item successfully added to cart.')</script>";
 		}
         
     }

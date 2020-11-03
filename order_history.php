@@ -24,9 +24,11 @@ include 'dbconnect.php';
     <?php include 'header.php'?>
     <div class="container">
     <div id="left-column">
-        <nav>
-        <ul><a href="profile.php">Profile</a></ul>
-        <ul><a href="order_history.php">Order history</a></ul>
+    <nav>
+            <ul>
+                <a href="profile.php"><li class="li-category">Profile</li></a>
+                <a href="order_history.php"><li class="li-category selected-nav">Order history</li></a>
+            </ul>
         </nav>
     </div>
     <div class="listrightColumn">

@@ -9,8 +9,8 @@ purchaseQty.addEventListener('change',checkForStock,false)
 
 
 function checkForStock(e){
-    let currentQty = e.target.value
-    if (currentQty > stock.textContent){
+    let currentQty = parseInt(e.target.value)
+    if (currentQty > parseInt(stock.textContent)){
         submitButton.disabled = true
         alert('Selected quantity exceeds current stock level. Please try again.')
     }

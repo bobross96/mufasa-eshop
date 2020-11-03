@@ -4,6 +4,8 @@
 include 'sessionPolice.php';
 include 'dbconnect.php';
 
+
+
 $user_idINT = (int)$_SESSION['user_id'];
 
 
@@ -51,8 +53,10 @@ $row = $result -> fetch_assoc();
     <div class="container">
     <div id="left-column">
         <nav>
-        <ul><a href="profile.php">Profile</a></ul>
-        <ul><a href="order_history.php">Order history</a></ul>
+            <ul>
+                <a href="profile.php"><li class="li-category selected-nav">Profile</li></a>
+                <a href="order_history.php"><li class="li-category">Order history</li></a>
+            </ul>
         </nav>
     </div>
     <form action="" method='POST'>
@@ -75,7 +79,7 @@ $row = $result -> fetch_assoc();
             </div><br><br>
             <div class="editButton">
 
-            <button id="submitButton" type="submit" value="Update" name="update" style="border: none; outline: 0; color: white; background-color: #000; cursor: pointer; width: 100px; height:30px; font-size: 18px;" >Update</button>
+            <button id="submitButton" type="submit" value="Update" name="update" style="border: none; outline: 0; color: white; background-color: #f57224; cursor: pointer; width: 100px; height:30px; font-size: 18px;" >Update</button>
 
             </div>
         </div>

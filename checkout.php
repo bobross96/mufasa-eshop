@@ -43,14 +43,17 @@
             <div class="details-form" style="max-width:80%; text-align:center;">
                 <h1>Check Out</h1>            
                 <div class="form-element">
-                <label for="address">Address:</label><br>
-                <input type="text" size="30" class="form-input" id="address" name="address" value="<?php echo $row['address'] ?>" required onchange=validateAdd(this.value)><br>
+                    <div>
+                        <span>Address:</span>
+                        <span><input type="text"  id="address" name="address" value="<?php echo $row['address'] ?>" required onchange=validateAdd(this.value)>
+                        </span>
+                    </div><br>
+                    <div>
+                        <span>Postal Code:</span>
+                        <span><input type="text"  id="postalCode" name="postalCode" value="<?php echo $row['postal_code'] ?>" required onchange=validatePostalCode(this.value)>
+                        </span>
+                    </div>
                 </div><br>
-                <div class="form-element">
-                <label for="postalCode">Postal Code:</label><br>
-                <input type="text" size="10" class="form-input" id="postalCode" name="postalCode" value="<?php echo $row['postal_code'] ?>" required onchange=validatePostalCode(this.value)><br>
-                </div>
-            </div><br>
             <div class="items-cart">
                 <table>
                     <tr>
@@ -95,7 +98,7 @@
                    
         <div style="text-align:center">
         
-        <input type="submit" style="border: none; outline: 0; padding: 12px; color: white; background-color: #000; text-align: center; cursor: pointer; width: 180px; font-size: 18px;" id="confirmPayment" value="Confirm Payment" name="order"><br><br>
+        <input type="submit" style="border: none; outline: 0; padding: 12px; color: white; background-color: #f57224; text-align: center; cursor: pointer; width: 180px; font-size: 18px;" id="confirmPayment" value="Confirm Payment" name="order"><br><br>
         
         </div>
     </div>

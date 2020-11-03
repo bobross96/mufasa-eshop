@@ -4,7 +4,7 @@ let minusButton = document.querySelectorAll(".minusButton");
 let plusButton = document.querySelectorAll(".plusButton");
 
 
-window.scrollBy(0, -500);
+
 
 /* qtyInput.forEach((input) => {
   console.log("poop");
@@ -78,10 +78,3 @@ function updatePrice(e) {
   
 }
 
-/* function minusQty(e){
-    let id = e.target.id.slice(11)
-    let input = document.getElementById(id)
-    if (input.value <= 1 ){
-        input.value = 1
-    } 
-} */

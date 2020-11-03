@@ -92,8 +92,10 @@
         if ($cartItemsQty == 0){
 
         ?>
+        <div style="text-align:center">
         <h2 style='text-align:center'>No items in cart! Help Mufasa out!</h2>
-        
+        <img src="images/sadlogo.PNG" width="200vx" height="200vh" alt="" srcset="">
+        </div>
         <?php     
         }
         else {

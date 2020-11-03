@@ -12,9 +12,7 @@
 }
 
 
-.form-element label {
-    width: 150px;
-}
+
 
 
 .flex-box{
@@ -27,3 +25,25 @@
 #confirmPayment {
     margin-top: 50px;
 }
+
+
+
+
+
+.form-element div {
+    display: flex;
+  }
+  
+  .form-element div span {
+    flex: 1;
+  }
+  
+  .form-element div span:first-of-type {
+    text-align: right;
+    padding-right: 5px;
+  }
+  
+  .form-element div span:last-of-type {
+    padding-left: 5px;
+    text-align:left
+  }

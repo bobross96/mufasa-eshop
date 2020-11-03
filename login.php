@@ -53,14 +53,32 @@ if (isset($_POST['username'])){
 	<style>
 			* {box-sizing: border-box}
 
+		body {
+			background-color: #ef5734;
+			background-image: linear-gradient(315deg, #ef5734 0%, #ffcc2f 74%);
+
+		}
+
 		/* Add padding to containers */
 		.container {
-		  padding: 16px;
+		    position: absolute;
+			left: 50%;
+			top: 50%;
+			transform: translate(-50%, -50%);
+			background-color: whitesmoke;
+			width: 50%
+			
+		}
+
+		.flex-container {
+			display:flex; 
+			justify-content : center; 
+			align-items:center
 		}
 
 		/* Full-width input fields */
 		input[type=text], input[type=password] {
-		  width: 20%;
+		  width: 95%;
 		  padding: 15px;
 		  margin: 5px 0 22px 0;
 		  display: inline-block;
@@ -81,14 +99,15 @@ if (isset($_POST['username'])){
 
 		/* Set a style for the submit/register button */
 		.loginbtn {
-		  background-color: #4CAF50;
+		  background-color: #f57224;
 		  color: white;
 		  padding: 16px 20px;
 		  margin: 8px 0;
 		  border: none;
 		  cursor: pointer;
-		  width: 20%;
+		  width: 95%;
 		  opacity: 0.9;
+		  
 		}
 
 		.loginbtn:hover {
@@ -108,19 +127,23 @@ if (isset($_POST['username'])){
     echo $login_error;
     ?>
     </h3>
-    
-    <div style="text-align:center">
-    <h2>Login to your Mufasa account</h2>
-    <img src="images/login.jpg" alt="login" width="300px" height="200px">
-	<p>Need an account? <a href="register.php">Register here.</a></p>
+    <div class="container">
+    <div class="flex-container">
+	<div>
+    <!-- <h2>Login to your Mufasa account</h2> -->
+    <img src="images/logo.png" alt="login" width="266px" height="200px">
+	</div>
+	<div style=" padding : 5% ; text-align:center">
     <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
-    Username: <br>
-    <input type="text" name="username" required><br>
-    Password: <br>
-    <input type="password" name="password" required><br>
-    
-	<button name="submit" type="submit" class="loginbtn" value="Submit">Login</button>
+	<h2>Login to Mufasa Electronics</h2>
+    <input type="text" name="username" placeholder="Username:" width="70" required ><br>
+    <input type="password" name="password" placeholder="Password:" required><br>
+    <button name="submit" type="submit" class="loginbtn" value="Submit">LOGIN</button>
+	<p>New to Mufasa? <a href="register.php">Register here.</a></p>
+	
     </form>
+	</div>
     </div>
+	</div>
 </body>
 </html>

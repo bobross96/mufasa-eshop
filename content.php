@@ -1,10 +1,15 @@
 <?php
 include "dbconnect.php";
 
+
+//handle search bar 
 if (isset($_GET['search'])){
     $string = $_GET['search'];
+    //remove empty characters
     $noSpaceString = str_replace(' ', '', $string);
+    //only take first 3 letters to search for better search returns 
     $stringToSearch = "%".substr($noSpaceString,0,3)."%";
+    //search across 3 columns for matches
     $searchQuery = "SELECT * FROM products WHERE product_name LIKE '$stringToSearch' OR brand LIKE '$stringToSearch' OR category LIKE '$stringToSearch' ";
     $searchResult = $db->query($searchQuery);
     $result = array();
@@ -128,7 +133,7 @@ else {
             <?php
             foreach ($_GET as $key => $value) {
             ?>
-                <span style="border:1px dimgray solid; padding : 10px;border-radius: 10px;"><?php echo $value; ?></span>
+                <span class="breadcrumb"><?php echo $value; ?></span>
             <?php
             }
             ?>

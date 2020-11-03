@@ -1,170 +1,182 @@
 .container {
-    padding: 20px;
-    width: 80%;
-	min-width: 900px;
-    margin: auto;
+  padding: 20px;
+  width: 80%;
+  min-width: 900px;
+  margin: auto;
 }
 
-
 .listrightColumn {
-	margin-left: 15%;
-    padding: 10px 20px 20px 50px;
-    margin-bottom: 0px;
-    color: #31160c;
-    min-height: 500px;
-    font-size: 120%;
-	text-decoration: none;
-    
+  margin-left: 15%;
+  padding: 10px 20px 20px 50px;
+  margin-bottom: 0px;
+  color: #31160c;
+  min-height: 500px;
+  font-size: 120%;
+  text-decoration: none;
 }
 
 .nextToListRightColumn {
   margin-left: 20%;
-    padding: 10px 20px 20px 50px;
-    margin-bottom: 0px;
-    color: #31160c;
-    min-height: 500px;
-    font-size: 120%;
-	text-decoration: none;
+  padding: 10px 20px 20px 50px;
+  margin-bottom: 0px;
+  color: #31160c;
+  min-height: 500px;
+  font-size: 120%;
+  text-decoration: none;
 }
 
 .profilerightColumn {
-	margin-right: 20%;
+  margin-right: 20%;
 
-	margin-left: 18%;
-    padding: 20px 20px 20px 50px;
-    color: #31160c;
-    min-height: 500px;
-    font-size: 120%;
-	text-decoration: none;
-    
+  margin-left: 18%;
+  padding: 20px 20px 20px 50px;
+  color: #31160c;
+  min-height: 500px;
+  font-size: 120%;
+  text-decoration: none;
 }
 
 .rightColumn {
-	margin: auto;
-	padding-top: 20px;
-	padding-bottom: 50px;
-	color: #31160c;
-    min-height: 500px;
-    font-size: 120%;
-	text-decoration: none;
-    
+  margin: auto;
+  padding-top: 20px;
+  padding-bottom: 50px;
+  color: #31160c;
+  min-height: 500px;
+  font-size: 120%;
+  text-decoration: none;
+}
+
+.checkoutbutton {
+  border: none;
+  outline: 0;
+  padding: 12px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 120px;
+  font-size: 18px;
+}
+
+.rightColumn button:hover {
+  opacity: 0.7;
+}
+
+.rightColumn button:disabled {
+  opacity: 0.4;
+}
+
+nav ul {
+  list-style: none;
+  text-decoration: none;
+  list-style-position: inside; padding-left: 0;
+}
+
+nav li {
+  margin: 10px;
+  padding: 5px;
+  color: whitesmoke;
 }
 
 
-.checkoutbutton {
-    border: none;
-    outline: 0;
-    padding: 12px;
-    color: white;
-    background-color: #000;
-    text-align: center;
-    cursor: pointer;
-    width: 120px;
-    font-size: 18px;
-  }
 
+.li-category:hover {
+  background-color:  whitesmoke;
+  color: black
+}
 
-  .rightColumn button:hover {
-    opacity: 0.7;
-  }
+nav a {
+  text-decoration: none;
+}
 
-  .rightColumn button:disabled {
-      opacity : 0.4
-  }
-
-nav ul {
-    list-style: none;
-    text-decoration: none;
-  }
+nav {
+  margin-top: -1.5%;
+  float: left;
+  background-color: #f57224;
   
-  nav a {
-    text-decoration: none;
-  }
   
-  nav {
-    float: left;
-	  color:dimgray;
-  }
-
-  .product {
-    box-shadow: 0 4px 7px rgba(206,206,206,0.25);
-	vertical-align: top;
-    display: inline-block;
-    /* To horizontally center images and caption */
-    text-align: center;
-    /* The width of the container also implies margin around the images. */
-    width: 300px;
-	padding-top: 20px;
-	padding-bottom: 15px;
-  }
   
-  .product:hover {
-	box-shadow: 0 4px 7px rgba(206,206,206,0.7);
-	vertical-align: top;
-    display: inline-block;
-    /* To horizontally center images and caption */
-    text-align: center;
-    /* The width of the container also implies margin around the images. */
-    width: 300px;
-	padding-top: 20px;
-	padding-bottom: 15px;
-  }
+}
 
-  .landing-page {
-    vertical-align: top;
-    display: inline-block;
-    /* To horizontally center images and caption */
-    text-align: center;
-    /* The width of the container also implies margin around the images. */
-    width: 400px;
-  }
+.product {
+  box-shadow: 0 4px 7px rgba(206, 206, 206, 0.25);
+  vertical-align: top;
+  display: inline-block;
+  /* To horizontally center images and caption */
+  text-align: center;
+  /* The width of the container also implies margin around the images. */
+  width: 300px;
+  padding-top: 20px;
+  padding-bottom: 15px;
+}
 
-  .login-button {
-    font-size: 24px;
-    border: none;
-    width: 150px;
-    padding: 0.5em;
-  }
+.product:hover {
+  box-shadow: 0 4px 7px rgba(206, 206, 206, 0.7);
+  vertical-align: top;
+  display: inline-block;
+  /* To horizontally center images and caption */
+  text-align: center;
+  /* The width of the container also implies margin around the images. */
+  width: 300px;
+  padding-top: 20px;
+  padding-bottom: 15px;
+}
 
-  .product-details {
-    margin-top: 60px;
-  }
+.landing-page {
+  vertical-align: top;
+  display: inline-block;
+  /* To horizontally center images and caption */
+  text-align: center;
+  /* The width of the container also implies margin around the images. */
+  width: 400px;
+}
 
-  .product-image {
-      width: 210px;
-      height: 210px;
-	  margin-bottom: 8px;
-  }
+.login-button {
+  font-size: 24px;
+  border: none;
+  width: 150px;
+  padding: 0.5em;
+}
 
-  .product-desc {
-    display: block;
-  }
+.product-details {
+  margin-top: 60px;
+}
 
-  .product-price {
-      display: block;
-  }
+.product-image {
+  width: 210px;
+  height: 210px;
+  margin-bottom: 8px;
+}
 
-  .product-qty-input {
-    display : inline-block;
-    width : 80px;
-    text-align: center;
-    vertical-align: top;
-  }
-  
-*
-{
-    font-family: Arial, sans-serif;
-	text-decoration: none;
+.product-desc {
+  display: block;
+}
+
+.product-price {
+  display: block;
+}
+
+.product-qty-input {
+  display: inline-block;
+  width: 80px;
+  text-align: center;
+  vertical-align: top;
+}
+
+* {
+  font-family: Arial, sans-serif;
+  text-decoration: none;
 }
 
 /* Add a grey text color to links */
-		a {
-		  color: dimgray;
-		}
+a {
+  color: dimgray;
+}
 
-
-    body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
-
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
 
 .sorting-header {
   display: flex;
@@ -172,33 +184,34 @@ nav ul {
   margin-bottom: 15px;
   font-size: 83%;
   color: dimgray;
-
 }
 
-
-.selected-nav {
-  font-weight: bold;
+.li-category.selected-nav {
+  background-color: whitesmoke;
+  color : black
 }
 
-.header{
+.header {
   position: sticky;
   top: 0;
 }
 
 .top-header-container {
-  color: grey;
-  background-color: whitesmoke;
+  
+  background-color: #f57224;
   padding-top: 8px;
   display: flex;
-  min-width:900px; 
+  min-width: 900px;
   align-items: center;
   justify-content: space-between;
   padding-bottom: 9px;
 }
 
+
+
 .bottom-header-container {
-  border-style: none; 
-  min-width:900px; 
+  border-style: none;
+  min-width: 900px;
   background: rgba(255, 255, 255, 1);
 }
 
@@ -208,7 +221,16 @@ nav ul {
 
 .search-button {
   padding: 16px 16px; 
-  vertical-align: middle
+  vertical-align: middle; 
+  background-color : #f57224;
+  border: none;
+    outline: 0;
+  
+    color: white;
+    
+    
+    cursor: pointer;
+    
 
 }
 
@@ -216,5 +238,31 @@ nav ul {
   -webkit-user-select: none; /* Safari */
   -ms-user-select: none; /* IE 10 and IE 11 */
   user-select: none; /* Standard syntax */
-	
 }
+
+
+
+.breadcrumb {
+  border:1px dimgray solid; 
+  padding : 10px;
+  border-radius: 20px;
+  color: whitesmoke;
+  background-color: #f57224;
+}
+
+
+
+
+/*
+
+list of classes with orange 
+
+.breadcrumb 
+.nav
+.top-header-container
+
+
+
+
+
+*/

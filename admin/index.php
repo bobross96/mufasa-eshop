@@ -30,7 +30,6 @@
           echo "$result->error_log";
           $login_error = 'Login failed. Please try again';
           
-          //redirect to member page
       }
   }
 
@@ -61,13 +60,20 @@
 
     /* Add padding to containers */
     .container {
-      padding: 16px;
+      
+      text-align: center; 
+      position: absolute;
+			left: 50%;
+			top: 50%;
+			transform: translate(-50%, -50%);
+			background-color: whitesmoke;
+      width : 45%
     }
 
     /* Full-width input fields */
     input[type=text], input[type=password] {
-      width: 20%;
-      padding: 15px;
+      width: 30%;
+		  padding: 15px;
       margin: 5px 0 22px 0;
       display: inline-block;
       border: none;
@@ -87,14 +93,15 @@
 
     /* Set a style for the submit/register button */
     .loginbtn {
-      background-color: #4CAF50;
+      background-color: grey;
       color: white;
       padding: 16px 20px;
       margin: 8px 0;
       border: none;
       cursor: pointer;
-      width: 20%;
+      width: 30%;
       opacity: 0.9;
+      
     }
 
     .loginbtn:hover {
@@ -111,14 +118,17 @@
     }
     
 </style>
-    <div style="text-align: center; margin-top: 50px;">
-        <h2>Admin Page</h2>
+    
+    <div class="container">
+        
         <h2>
         <?php
          echo $login_error;
     
         ?>
+
         </h2>
+        <h2>Admin Page</h2>
         <div class="landing-page">
             <img src="../images/logo.png" width="200vx" height="150vh" alt="mufasa gif here">
         </div>
@@ -126,14 +136,14 @@
             <h2 style="font-style:italic">Login Page</h2>
            
             <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
-            Email: <br>
-            <input id="email" type="text" name="email" required onchange="validateEmail()"><br>
-            Password: <br>
-            <input type="password" name="password" required><br>
+            
+            <input id="email" type="text" name="email" placeholder="Email:" required onchange="validateEmail()"><br>
+            <input type="password" name="password" placeholder="Password:" required><br>
             <button id="loginButton" name="submit" type="submit" class="loginbtn" value="Submit">Login</button>
             </form>
             </div>
     </div>
+    
     <script src="javascript/loginValidation.js"></script>
 </body>
 </html>

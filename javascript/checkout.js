@@ -4,6 +4,8 @@ confirmButton = document.getElementById('confirmPayment')
 address = document.getElementById('address')
 postalCode = document.getElementById('postalCode')
 
+confirmButton.addEventListener('click',finalValidate,false)
+
 function validateAdd(address){
     
     var pos = address.search(/[^a-zA-Z\d\s\\#\-:]/)
@@ -21,9 +23,6 @@ function validateAdd(address){
     
 }
 
-
-
-
 function validatePostalCode(postcode) {
     var pos = postcode.search(/^[0-9]{6}$/)
     if (pos != 0){
@@ -37,3 +36,14 @@ function validatePostalCode(postcode) {
 
     
 }
+
+
+
+
+
+
+
+
+
+
+
