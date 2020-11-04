@@ -69,7 +69,8 @@
 nav ul {
   list-style: none;
   text-decoration: none;
-  list-style-position: inside; padding-left: 0;
+  list-style-position: inside;
+  padding-left: 0;
 }
 
 nav li {
@@ -78,11 +79,9 @@ nav li {
   color: whitesmoke;
 }
 
-
-
 .li-category:hover {
-  background-color:  whitesmoke;
-  color: black
+  background-color: whitesmoke;
+  color: black;
 }
 
 nav a {
@@ -93,9 +92,6 @@ nav {
   margin-top: -1.5%;
   float: left;
   background-color: #f57224;
-  
-  
-  
 }
 
 .product {
@@ -188,7 +184,7 @@ body {
 
 .li-category.selected-nav {
   background-color: whitesmoke;
-  color : black
+  color: black;
 }
 
 .header {
@@ -197,7 +193,6 @@ body {
 }
 
 .top-header-container {
-  
   background-color: #f57224;
   padding-top: 8px;
   display: flex;
@@ -207,8 +202,6 @@ body {
   padding-bottom: 9px;
 }
 
-
-
 .bottom-header-container {
   border-style: none;
   min-width: 900px;
@@ -217,21 +210,19 @@ body {
 
 .search-bar {
   padding-left: 10px;
+  height: 5%;
 }
 
 .search-button {
-  padding: 16px 16px; 
-  vertical-align: middle; 
-  background-color : #f57224;
+  padding: 16px 16px;
+  vertical-align: middle;
+  background-color: #f57224;
   border: none;
-    outline: 0;
+  outline: 0;
+  color: white;
+  cursor: pointer;
+  width: 5%;
   
-    color: white;
-    
-    
-    cursor: pointer;
-    
-
 }
 
 .searchValue {
@@ -240,18 +231,13 @@ body {
   user-select: none; /* Standard syntax */
 }
 
-
-
 .breadcrumb {
-  border:1px dimgray solid; 
-  padding : 10px;
+  border: 1px dimgray solid;
+  padding: 10px;
   border-radius: 20px;
   color: whitesmoke;
   background-color: #f57224;
 }
-
-
-
 
 /*
 

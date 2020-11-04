@@ -63,8 +63,10 @@ $result = $db->query($productQuery);
     <div class="container">
     <div>
         <nav>
-        <ul><a href="admin-stock.php">Manage Stock</a></ul>
-        <ul><a href="admin-orders.php">Manage Orders</a></ul>
+            <ul>
+                <a href="admin-stock.php"><li class="li-category selected-nav">Manage Stock</li></a>
+                <a href="admin-orders.php"><li class="li-category">Manage Orders</li></a>
+            </ul>
         </nav>
 
     </div>

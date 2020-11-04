@@ -1,49 +1,45 @@
- .details-form{
-    
-    margin: auto;
-	padding-bottom: 20px;
-    max-height: 250px;
-    
+.details-form {
+  margin: auto;
+  padding-bottom: 20px;
+  max-height: 250px;
 }
 
-.items-cart{
-    padding-left: 0px;
-   
+.items-cart {
+  padding-left: 0px;
 }
 
-
-
-
-
-.flex-box{
-    display: flex;
-    align-items: top;
-    justify-content: center;
-
+.flex-box {
+  display: flex;
+  align-items: top;
+  justify-content: center;
 }
 
 #confirmPayment {
-    margin-top: 50px;
+  margin-top: 50px;
 }
 
-
-
-
-
 .form-element div {
-    display: flex;
-  }
-  
-  .form-element div span {
-    flex: 1;
-  }
-  
-  .form-element div span:first-of-type {
-    text-align: right;
-    padding-right: 5px;
-  }
-  
-  .form-element div span:last-of-type {
-    padding-left: 5px;
-    text-align:left
-  }
+  display: flex;
+}
+
+.form-element div span {
+  flex: 1;
+}
+
+.form-element div span:first-of-type {
+  text-align: right;
+  padding-right: 5px;
+}
+
+.form-element div span:last-of-type {
+  padding-left: 5px;
+  text-align: left;
+}
+
+button:hover {
+  opacity: 0.7;
+}
+
+button:disabled {
+    opacity : 0.4
+}

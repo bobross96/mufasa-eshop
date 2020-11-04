@@ -80,7 +80,10 @@
 	  </form>
 	  </div>
 	</div>
-	
+	<hr style="height: 10px;
+  border: 0;
+  box-shadow: 0 4px 7px rgba(206, 206, 206, 0.25);
+  ">
 	<?php
 	
 	//Recommendations = Suggest product from the same category? Limit items shown to 4.

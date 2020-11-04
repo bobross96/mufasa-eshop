@@ -5,8 +5,6 @@ let minusButton = document.querySelectorAll(".minusButton");
 let plusButton = document.querySelectorAll(".plusButton");
 
 
-window.scrollBy(0, -500);
-
 /* qtyInput.forEach((input) => {
   console.log("poop");
   input.addEventListener("change", updatePrice, false);

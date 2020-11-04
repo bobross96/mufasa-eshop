@@ -48,8 +48,10 @@
     <div class='container'>
     <div>
         <nav>
-        <ul><a href="admin-stock.php">Manage Stock</a></ul>
-        <ul><a href="admin-orders.php">Manage Orders</a></ul>
+            <ul>
+                <a href="admin-stock.php"><li class="li-category">Manage Stock</li></a>
+                <a href="admin-orders.php"><li class="li-category selected-nav">Manage Orders</li></a>
+            </ul>
         </nav>
 
     </div>
@@ -104,11 +106,10 @@
                 </tr>
             </table>
             </div>
-            <div style="display:inline-block ; vertical-align:top; padding-left : 20px" >
+            <div style="display:inline-block ; vertical-align:top; float:right" >
             <form id="submitForm<?php echo $orderInfo['id'];?>" action="<?php echo $_SERVER['SELF']?>" method="POST">
             <label for="changeOrder">Order Status:</label>
             <select name="changeOrder" id="<?php echo $orderInfo['id'];?>" onchange="formChange(this.id)">
-            <option value="">---</option>
                 <option  value="Created" <?php if ($orderInfo['order_status'] == 'Created') {echo 'selected';} ?>>Created</option>
                 <option  value="In Transit" <?php if ($orderInfo['order_status']  == 'In Transit') {echo 'selected';} ?>>In Transit</option>
                 <option  value="Delivering" <?php if ($orderInfo['order_status']  == 'Delivering') {echo 'selected';} ?>>Delivering</option>

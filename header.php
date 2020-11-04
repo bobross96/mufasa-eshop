@@ -1,5 +1,4 @@
-<!-- Load icon library -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 
 <?php
  
@@ -58,7 +57,7 @@
 		<a href="index.php"><img style="padding: 0px 16px; vertical-align: middle" src="images/logo.png" alt="logo" width="129vw" height="100vh"></a>
 		<span><label for="search"></label><input name="search" type="text" placeholder="Search for your products here" 
 		style="width:40%;padding: 16px 16px;margin-left: 2%;vertical-align: middle; border: 2px solid #ccc;border-radius: 4px;"></span>
-		<button type="submit" class="search-button" style=""><i class="fa fa-search"></i></button>
+		<button type="submit" class="search-button" style=""><img src="images/search.svg" width="15px"  height="15px" alt="" srcset=""></button>
 		<a href="cart.php" style="text-decoration: none; color: black; vertical-align: middle">
 		<span style="padding: 16px 16px;min-width:40%; margin-left: 2%; margin-right: 2%; font-size: 20px; vertical-align: middle">
 		<img src="images/cartOrange.svg" alt="carty" width="40px" height="40px" style="vertical-align: middle; position: relative;">

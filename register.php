@@ -8,8 +8,7 @@ if (isset($_POST['submit'])){
         header("Refresh:0");
 	}
 	else {
-
-		$username = $_POST['username'];
+		$username = str_replace(' ', '', $_POST['username']);
 		$password = md5($_POST['password']);
 		//check if username is already taken or email has already been registered
 		$checkExistingUsername = "SELECT * FROM users WHERE username = '$username'";

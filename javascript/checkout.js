@@ -6,6 +6,11 @@ postalCode = document.getElementById('postalCode')
 
 confirmButton.addEventListener('click',finalValidate,false)
 
+
+let addressIsValid = true
+let postalCodeIsValid = true
+
+
 function validateAdd(address){
     
     var pos = address.search(/[^a-zA-Z\d\s\\#\-:]/)
@@ -14,9 +19,11 @@ function validateAdd(address){
         characters in your
 		address`)
         confirmButton.disabled = true;
+        addressIsValid = false
     }
     else {
         confirmButton.disabled = false;
+        isAllValid()
     }
 
    
@@ -28,13 +35,26 @@ function validatePostalCode(postcode) {
     if (pos != 0){
         alert(`Please input postal code that is of 6 digits`)
         confirmButton.disabled = true;
+        postalCodeIsValid = false
     }
 
     else {
         confirmButton.disabled = false;
+        isAllValid()
     }
 
     
+}
+
+
+function isAllValid(){
+    if (postalCodeIsValid && addressIsValid){
+        confirmButton.disabled = false
+    }
+
+    else {
+        confirmButton.disabled = true
+    }
 }
 
 

@@ -98,7 +98,7 @@
                    
         <div style="text-align:center">
         
-        <input type="submit" style="border: none; outline: 0; padding: 12px; color: white; background-color: #f57224; text-align: center; cursor: pointer; width: 180px; font-size: 18px;" id="confirmPayment" value="Confirm Payment" name="order"><br><br>
+        <button style="border: none; outline: 0; padding: 12px; color: white; background-color: #f57224; text-align: center; cursor: pointer; width: 180px; font-size: 18px;" id="confirmPayment" value="Confirm Payment" name="order">Confirm Payment</button><br><br>
         
         </div>
     </div>
